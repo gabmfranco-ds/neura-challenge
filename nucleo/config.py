@@ -12,6 +12,9 @@ PASTA_DADOS = RAIZ / "dados"
 PASTA_GRAVACOES = pathlib.Path(os.environ.get("NEURA_GRAVACOES") or (RAIZ / "gravacoes"))
 PASTA_REPRISE_EXEMPLO = PASTA_DADOS / "reprise-exemplo"
 CAMINHO_BANCO = pathlib.Path(os.environ.get("NEURA_DB") or (RAIZ / "neura.db"))
+# Banco do Agno: é ele que guarda o `session_state` de cada rodada. Arquivo
+# separado de propósito, porque quem manda no schema dele é o Agno.
+CAMINHO_ESTADO = pathlib.Path(os.environ.get("NEURA_DB_AGNO") or (RAIZ / "neura-agno.db"))
 
 HOST = os.environ.get("NEURA_HOST", "127.0.0.1")
 PORTA = int(os.environ.get("NEURA_PORTA", "8787"))
@@ -34,3 +37,10 @@ def capacidade(agente_id: str, padrao: str = "auto") -> str:
 # Orçamento inicial de cada carteira, em dólar. Serve para a tela mostrar
 # quanto sobrou; o gasto de inferência que sai daqui é REAL.
 ORCAMENTO_PADRAO_USD = float(os.environ.get("NEURA_ORCAMENTO_USD", "5.0"))
+
+
+# Negociação A2A. O dono pediu "2 a 3" rodadas: o padrão é 3.
+MAX_RODADAS_NEGOCIACAO = int(os.environ.get("NEURA_MAX_RODADAS", "3"))
+# Quando o comprador não diz a oferta mínima, o Buyer Agent assume esta fração
+# do teto e a suposição vai registrada no evento, nunca escondida.
+FRACAO_OFERTA_MIN_PADRAO = float(os.environ.get("NEURA_FRACAO_OFERTA_MIN", "0.90"))

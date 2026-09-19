@@ -15,19 +15,19 @@ import asyncio
 import json
 import logging
 import time
-from dataclasses import dataclass, field
 
 import httpx
 
 from agentes import comum
+from agentes.esquemas import EscolhaDeFornecedor
 from nucleo import config, dados, db, estados, reprise, verificacao
+from orchestrator import estado as estado_agno
 from orchestrator import memoria
 
 logger = logging.getLogger("neura.orchestrator")
 
 URL_REGISTRY = f"{config.BASE_URL}/registry"
 TIMEOUT_AGENTE = 120.0
-MAX_RODADAS_NEGOCIACAO = 4
 ALVO_SHORTLIST = 4
 MINIMO_SHORTLIST = 3
 
@@ -37,51 +37,40 @@ FICHA = {
     "description": "Contrata agentes no marketplace para atender o comprador.",
     "estrategia": "Paga pelo que for provado. Sem histórico, testa e verifica. "
                   "Reprovou, retém, publica o recibo e contrata outro.",
+    # Política de compra DECLARADA, visível na tela em toda decisão em que vale.
+    # É o que um comprador racional faz num marketplace novo: com pagamento
+    # proporcional ao que for provado, sai mais barato testar o barato e
+    # verificar do que pagar caro por uma promessa sem histórico. Não é código
+    # forçando resultado: a escolha continua sendo do modelo, e o recibo ruim
+    # publicado faz a rodada seguinte escolher diferente.
+    "politica_sem_historico": (
+        "Sem histórico verificado no marketplace, comece pelo mais barato e verifique. "
+        "Você paga proporcional ao que for provado e pode recontratar o concorrente com o "
+        "que sobrar, então testar o barato custa pouco e gera o histórico que falta."),
     "capacidade_neuralake": config.capacidade("orchestrator"),
 }
 
-RODADAS: dict[str, "Rodada"] = {}
+# Cache das rodadas desta execução. Quem não está aqui é buscado no banco do
+# Agno por `obter`, o que faz uma rodada sobreviver a reinício do servidor.
+RODADAS: dict[str, Rodada] = {}
 
 
-@dataclass
-class Rodada:
-    id: str
-    frase: str
-    estado: str = estados.INICIAL
-    criada_em: float = field(default_factory=time.time)
-    pedido: dict | None = None
-    suposicoes: list = field(default_factory=list)
-    shortlist: list = field(default_factory=list)
-    escolha: str | None = None
-    mandato: dict | None = None
-    negociacao: list = field(default_factory=list)
-    preco_acordado: int | None = None
-    pacote: dict | None = None
-    contratos: list = field(default_factory=list)
-    memoria_usada: dict | None = None
-    reprovados: list = field(default_factory=list)
-    custo_busca_usd: float = 0.0
-    erro: str | None = None
-    concluida_em: float | None = None
-    trabalhando: bool = False
-    gravacao: str | None = None
+def obter(rodada_id: str) -> Rodada | None:
+    rodada = RODADAS.get(rodada_id)
+    if rodada is not None:
+        return rodada
+    rodada = estado_agno.carregar(rodada_id)
+    if rodada is not None:
+        RODADAS[rodada_id] = rodada
+    return rodada
 
-    def para_json(self) -> dict:
-        return {
-            "rodada_id": self.id, "frase": self.frase, "estado": self.estado,
-            "pedido": self.pedido, "suposicoes": self.suposicoes,
-            "shortlist": self.shortlist, "escolha": self.escolha, "mandato": self.mandato,
-            "negociacao": self.negociacao, "preco_acordado": self.preco_acordado,
-            "pacote": self.pacote, "contratos": self.contratos,
-            "memoria_usada": self.memoria_usada, "custo_busca_usd": round(self.custo_busca_usd, 6),
-            "erro": self.erro, "trabalhando": self.trabalhando,
-            "duracao_s": round((self.concluida_em or time.time()) - self.criada_em, 1),
-            "concluida": self.estado in estados.TERMINAIS,
-            "gravacao": self.gravacao,
-            "escrow": {"saldo_brl": db.saldo_escrow(self.id),
-                       "lancamentos": db.razao_escrow(self.id)},
-            "placar": placar(self.id),
-        }
+
+Rodada = estado_agno.Rodada
+
+
+def rodada_json(rodada: Rodada) -> dict:
+    """O pacote que a tela lê: estado do Agno mais o placar tirado dos eventos."""
+    return {**rodada.para_json(), "placar": placar(rodada.id)}
 
 
 # ------------------------------------------------------------------ eventos
@@ -95,6 +84,7 @@ def _transitar(rodada: Rodada, novo: str, motivo: str) -> None:
     estados.exigir(rodada.estado, novo)
     anterior = rodada.estado
     rodada.estado = novo
+    rodada.salvar()
     db.inserir_evento(rodada.id, novo, "estado", anterior, novo, motivo)
 
 
@@ -175,6 +165,14 @@ async def _avaliar_e_contratar(rodada: Rodada, capacidade: str, candidatos: list
         "historico": c.get("historico"),
     } for c in candidatos]
 
+    # A política só vale quando NENHUM candidato tem entrega verificada. Assim que
+    # o marketplace tem histórico, ele manda, e é isso que faz o marketplace
+    # "aprender" de uma rodada para a outra.
+    sem_historico = all(not (c.get("historico") or {}).get("entregas") for c in candidatos)
+    politica = FICHA["politica_sem_historico"] if sem_historico else (
+        "Já existe histórico verificado no marketplace. Use a taxa de aprovação antes do preço: "
+        "agente que já foi reprovado custa caro em retrabalho.")
+
     mensagens = [
         comum.sistema(FICHA, "Você contrata agentes num marketplace. Você paga pelo que for "
                              "PROVADO por verificação de código, e pode recontratar outro se a "
@@ -195,7 +193,8 @@ async def _avaliar_e_contratar(rodada: Rodada, capacidade: str, candidatos: list
         )},
     ]
     objeto, resultado = await comum.pedir_json(FICHA, mensagens, etapa=f"avaliar:{capacidade}",
-                                               rodada_id=rodada.id, max_tokens=500)
+                                               rodada_id=rodada.id, max_tokens=500,
+                                               esquema=EscolhaDeFornecedor)
     validos = {c["agente_id"]: c for c in candidatos}
     escolhido = None
     motivo = ""
@@ -207,11 +206,15 @@ async def _avaliar_e_contratar(rodada: Rodada, capacidade: str, candidatos: list
         motivo = (f"o modelo não devolveu uma escolha válida; fiquei com o mais barato "
                   f"({escolhido['name']}) porque pago só pelo que for provado")
     _evento(rodada, "decisao", "Orquestrador", escolhido["name"],
-            f"contratei {escolhido['name']} por US$ {escolhido.get('preco_usd', 0):.2f}: {motivo}",
+            f"contratei {escolhido['name']} por US$ {escolhido.get('preco_usd', 0):.2f}: {motivo}"
+            + (f" [política declarada: sem histórico verificado, começar pelo mais barato e "
+               f"verificar]" if sem_historico else
+               f" [o marketplace já tem histórico: taxa de aprovação pesa mais que preço]"),
             resultado.custo_usd,
             dados_extra={"capacidade": capacidade, "escolhido": escolhido["agente_id"],
                          "candidatos": list(validos), "orcamento_usd": orcamento_usd,
-                         "criterios_de_aceite": criterios})
+                         "criterios_de_aceite": criterios, "politica": politica,
+                         "sem_historico": sem_historico})
     return escolhido
 
 
@@ -257,7 +260,7 @@ async def _pagar(rodada: Rodada, card: dict, skill: str, pedidos: int, provados:
 # -------------------------------------------------------------- fluxo 1
 
 async def iniciar(frase: str) -> Rodada:
-    rodada = Rodada(id=db.novo_id("rod-"), frase=frase)
+    rodada = estado_agno.nova(db.novo_id("rod-"), frase)
     RODADAS[rodada.id] = rodada
     db.abrir_carteira("orchestrator", "Orquestrador", config.ORCAMENTO_PADRAO_USD * 4)
     _evento(rodada, "humano", "Comprador", "Buyer Agent",
@@ -310,6 +313,7 @@ async def _fluxo_busca(rodada: Rodada) -> None:
             _transitar(rodada, "ABORTED", f"a busca parou: {erro}")
     finally:
         rodada.trabalhando = False
+        rodada.salvar()
         logger.info("fluxo de busca terminou em %.1fs", time.time() - inicio)
 
 
@@ -434,18 +438,41 @@ async def _rodar_busca(rodada: Rodada, card: dict, criterios: list[str], quantid
 def escolher(rodada: Rodada, property_id: str) -> None:
     if not any(i["property_id"] == property_id for i in rodada.shortlist):
         raise ValueError(f"{property_id} não está na shortlist desta rodada")
+    if rodada.estado == "OFFER_REJECTED":
+        # Não houve acordo: o comprador escolhe OUTRO imóvel da mesma shortlist e
+        # a negociação recomeça do zero. Nada de papelada foi aberto.
+        _transitar(rodada, "SHORTLIST", "sem acordo no imóvel anterior, volta para a escolha")
+        rodada.negociacao = []
+        rodada.preco_acordado = None
+        rodada.mandato = None
+        rodada.pacote = None
     rodada.escolha = property_id
     _evento(rodada, "humano", "Comprador", "Buyer Agent",
             f"o comprador escolheu o imóvel {property_id} da shortlist")
     _transitar(rodada, "PROPERTY_SELECTED", f"comprador escolheu {property_id}")
 
 
-async def ofertar(rodada: Rodada, teto_preco: int, prazo_dias: int = 60) -> None:
-    rodada.mandato = {"teto_preco": int(teto_preco), "prazo_dias": int(prazo_dias)}
+async def ofertar(rodada: Rodada, teto_preco: int, prazo_dias: int = 60,
+                  oferta_min: int | None = None) -> None:
+    """Terceiro e último ato do humano: a FAIXA autorizada.
+
+    Se ele não disser a oferta mínima, o Orchestrator assume uma fração declarada
+    do teto e registra a suposição no evento. Suposição escondida é o começo de
+    toda demo que mente.
+    """
+    assumida = oferta_min is None
+    if assumida:
+        oferta_min = int(round(teto_preco * config.FRACAO_OFERTA_MIN_PADRAO / 1000) * 1000)
+    rodada.mandato = {"oferta_min": int(oferta_min), "teto_preco": int(teto_preco),
+                      "prazo_dias": int(prazo_dias)}
+    rodada.salvar()
     _evento(rodada, "humano", "Comprador", "Buyer Agent",
-            f"o comprador autorizou a oferta com teto de R$ {teto_preco:,.0f} e prazo de "
-            f"{prazo_dias} dias. A partir daqui ninguém mais consulta o comprador."
-            .replace(",", "."))
+            (f"o comprador autorizou negociar entre R$ {oferta_min:,.0f} e "
+             f"R$ {teto_preco:,.0f}, prazo de {prazo_dias} dias. A partir daqui ninguém "
+             f"mais consulta o comprador.").replace(",", ".")
+            + (f" (a oferta mínima não foi informada: assumi "
+               f"{int(config.FRACAO_OFERTA_MIN_PADRAO * 100)}% do teto)" if assumida else ""),
+            dados_extra={"mandato": rodada.mandato, "oferta_min_assumida": assumida})
     asyncio.create_task(_fluxo_compra(rodada))
 
 
@@ -469,23 +496,69 @@ async def _fluxo_compra(rodada: Rodada) -> None:
         rodada.concluida_em = time.time()
         if rodada.estado == "COMPLETED":
             try:
-                rodada.gravacao = reprise.gravar(rodada.id, rodada.para_json())
+                rodada.gravacao = reprise.gravar(rodada.id, rodada_json(rodada))
                 _evento(rodada, "decisao", "Orquestrador", "gravação",
                         f"rodada gravada para reprise em {rodada.gravacao}")
             except Exception:
                 logger.exception("falhei ao gravar a reprise")
+        rodada.salvar()
+
+
+async def _jogar(rodada: Rodada, card: dict, skill: str, entrada: dict,
+                 conferir, lado: str, numero: int) -> tuple[dict, dict]:
+    """Pede uma jogada, confere POR CÓDIGO, descarta e manda repetir uma vez.
+
+    Regra do time: jogada que viola a regra da negociação é descartada e repetida
+    uma vez com o motivo. Se violar de novo, a rodada conta como gasta e a
+    violação fica registrada, porque isso é dado útil sobre o modelo, não sujeira
+    para esconder.
+    """
+    correcao = ""
+    for tentativa in range(2):
+        resposta = await _delegar(
+            rodada, card, skill, {**entrada, "correcao": correcao},
+            criterios=["jogada dentro da faixa autorizada"], orcamento_usd=0.0,
+            resumo=(f"rodada {numero} da negociação"
+                    + (" (refazendo, a anterior violou a regra)" if correcao else "")))
+        jogada = resposta.get("saida") or {}
+        conferencia = conferir(jogada)
+        if conferencia["valida"]:
+            if tentativa:
+                _evento(rodada, "verificacao", "Orquestrador", card["name"],
+                        f"a segunda jogada de {card['name']} passou na conferência por código",
+                        dados_extra={"lado": lado, "rodada": numero})
+            return jogada, conferencia
+        _evento(rodada, "verificacao", "Orquestrador", card["name"],
+                (f"DESCARTEI a jogada de {card['name']} na rodada {numero}: "
+                 f"{'; '.join(conferencia['motivos'])}. Mandei refazer."
+                 if tentativa == 0 else
+                 f"VIOLAÇÃO: {card['name']} furou a regra duas vezes na rodada {numero} "
+                 f"({'; '.join(conferencia['motivos'])}). A rodada conta como gasta."),
+                dados_extra={"lado": lado, "rodada": numero, "tentativa": tentativa + 1,
+                             "motivos": conferencia["motivos"], "jogada": jogada,
+                             "violacao": tentativa == 1})
+        correcao = "; ".join(conferencia["motivos"])
+    return jogada, conferencia
 
 
 async def _negociar(rodada: Rodada) -> None:
+    """Negociação A2A por faixa, com conferência de regra a cada jogada."""
     imovel = dados.imovel(rodada.escolha)
     publico = dados.visao_anuncio(imovel)
+    privado = imovel.get("_privado_vendedor") or {}
+    piso = int(privado.get("piso_preco") or imovel["preco"])
+    preco_pedido = int(imovel["preco"])
+    mandato = rodada.mandato or {}
+    oferta_min = mandato.get("oferta_min")
+    teto = mandato.get("teto_preco")
+    max_rodadas = config.MAX_RODADAS_NEGOCIACAO
 
     compradores = await _descobrir(rodada, "negociar_compra")
     buyer = await _avaliar_e_contratar(
         rodada, "negociar_compra", compradores,
-        contexto=f"negociar a compra do imóvel {rodada.escolha} dentro do mandato do comprador",
-        criterios=["nunca oferecer acima do teto do mandato",
-                   f"fechar em no máximo {MAX_RODADAS_NEGOCIACAO} rodadas"],
+        contexto=f"negociar a compra do imóvel {rodada.escolha} dentro da faixa do comprador",
+        criterios=[f"abrir exatamente em {oferta_min}", "nunca passar do teto",
+                   f"fechar em no máximo {max_rodadas} rodadas"],
         orcamento_usd=0.60)
     vendedores = await _descobrir(rodada, "negociar_venda", property_id=rodada.escolha)
     vendedor = await _avaliar_e_contratar(
@@ -496,16 +569,46 @@ async def _negociar(rodada: Rodada) -> None:
         _transitar(rodada, "ABORTED", "faltou agente para negociar")
         return
 
-    _transitar(rodada, "OFFER_CREATED", f"{buyer['name']} vai montar a primeira oferta")
+    _evento(rodada, "decisao", "Orquestrador", buyer["name"],
+            f"faixa autorizada pelo comprador: de {comum.dinheiro(oferta_min)} a "
+            f"{comum.dinheiro(teto)}, em até {max_rodadas} rodadas. O vendedor tem faixa "
+            f"própria, que eu não conheço.",
+            dados_extra={"mandato": mandato, "max_rodadas": max_rodadas})
+    _transitar(rodada, "OFFER_CREATED", f"{buyer['name']} vai abrir no mínimo autorizado")
 
-    for numero in range(1, MAX_RODADAS_NEGOCIACAO + 1):
-        jogada = (await _delegar(
+    violacoes = 0
+    for numero in range(1, max_rodadas + 1):
+        # Jogada descartada NÃO entra no histórico que o outro lado lê. Ela fica
+        # na lista para a tela mostrar e para o registro, mas alimentar o
+        # adversário com um número que a regra rejeitou é o mesmo que aceitar a
+        # jogada: foi assim que um vendedor com piso de R$ 1,97 milhão "fechou"
+        # em R$ 1,78 milhão numa rodada medida.
+        historico_valido = verificacao.jogadas_validas(rodada.negociacao)
+        minhas = [j.get("valor") for j in historico_valido
+                  if j.get("de") == buyer["name"] and j.get("acao") in ("oferta", "aceitar")
+                  and j.get("valor")]
+        contras = [j.get("valor") for j in historico_valido
+                   if j.get("de") == vendedor["name"] and j.get("acao") == "contraproposta"
+                   and j.get("valor")]
+
+        jogada, conferencia = await _jogar(
             rodada, buyer, "negociar_compra",
-            {"imovel": publico, "mandato": rodada.mandato, "historico": rodada.negociacao,
-             "rodada": numero, "max_rodadas": MAX_RODADAS_NEGOCIACAO},
-            criterios=["valor dentro do teto"], orcamento_usd=0.0,
-            resumo=f"rodada {numero} da negociação"))["saida"]
+            {"imovel": publico, "mandato": mandato, "historico": historico_valido,
+             "rodada": numero, "max_rodadas": max_rodadas},
+            lambda j: verificacao.conferir_jogada_comprador(
+                j, rodada=numero, oferta_min=oferta_min, teto=teto,
+                maior_oferta_anterior=max(minhas) if minhas else None),
+            "comprador", numero)
+
+        if not conferencia["valida"]:
+            violacoes += 1
+            rodada.negociacao.append({"rodada": numero, "de": buyer["name"],
+                                      **jogada, "violacao": conferencia["motivos"]})
+            rodada.salvar()
+            continue
+
         rodada.negociacao.append({"rodada": numero, "de": buyer["name"], **jogada})
+        rodada.salvar()
         _evento(rodada, "repasse", buyer["name"], vendedor["name"],
                 f"rodada {numero}: {jogada['acao']} de {comum.dinheiro(jogada.get('valor'))}. "
                 f"{jogada.get('mensagem', '')} Motivo: {jogada.get('motivo', '')}",
@@ -516,7 +619,7 @@ async def _negociar(rodada: Rodada) -> None:
                 _transitar(rodada, "OFFER_SENT", "última jogada do agente do comprador")
             _transitar(rodada, "OFFER_REJECTED",
                        f"o agente do comprador desistiu: {jogada.get('motivo', '')}")
-            await _pagar_negociacao(rodada, buyer)
+            await _fechar_negociacao(rodada, buyer, violacoes, piso, preco_pedido)
             return
         if jogada["acao"] == "aceitar":
             rodada.preco_acordado = jogada["valor"]
@@ -529,25 +632,39 @@ async def _negociar(rodada: Rodada) -> None:
         if rodada.estado in ("OFFER_CREATED", "COUNTER_OFFER"):
             _transitar(rodada, "OFFER_SENT", f"oferta {numero} enviada ao vendedor")
 
-        resposta = (await _delegar(
+        resposta, conferencia_v = await _jogar(
             rodada, vendedor, "negociar_venda",
             {"property_id": rodada.escolha, "oferta": jogada.get("valor"),
-             "mensagem": jogada.get("mensagem"), "historico": rodada.negociacao,
-             "rodada": numero, "max_rodadas": MAX_RODADAS_NEGOCIACAO},
-            criterios=["aceita, contraproposta ou rejeita"], orcamento_usd=0.0,
-            resumo=f"responder à oferta {numero}"))["saida"]
+             "mensagem": jogada.get("mensagem"),
+             "historico": verificacao.jogadas_validas(rodada.negociacao),
+             "rodada": numero, "max_rodadas": max_rodadas},
+            lambda j: verificacao.conferir_jogada_vendedor(
+                j, piso=piso, preco_pedido=preco_pedido,
+                menor_contraproposta_anterior=min(contras) if contras else None),
+            "vendedor", numero)
+
+        if not conferencia_v["valida"]:
+            violacoes += 1
+            rodada.negociacao.append({"rodada": numero, "de": vendedor["name"],
+                                      **resposta, "violacao": conferencia_v["motivos"]})
+            rodada.salvar()
+            continue
+
         rodada.negociacao.append({"rodada": numero, "de": vendedor["name"], **resposta})
+        rodada.salvar()
         _evento(rodada, "repasse", vendedor["name"], buyer["name"],
-                f"rodada {numero}: {resposta['acao']} de {comum.dinheiro(resposta.get('valor'))}. "
-                f"{resposta.get('mensagem', '')} Motivo: {resposta.get('motivo', '')}",
+                f"rodada {numero}: {resposta['acao']} de "
+                f"{comum.dinheiro(resposta.get('valor'))}. {resposta.get('mensagem', '')} "
+                f"Motivo: {resposta.get('motivo', '')}",
                 dados_extra={"jogada": resposta})
 
         if resposta["acao"] == "aceita":
             rodada.preco_acordado = resposta["valor"]
             _transitar(rodada, "OFFER_ACCEPTED",
-                       f"vendedor aceitou {comum.dinheiro(resposta['valor'])} na rodada {numero}")
+                       f"vendedor aceitou {comum.dinheiro(resposta['valor'])} "
+                       f"na rodada {numero}")
             break
-        if resposta["acao"] == "rejeita" and numero == MAX_RODADAS_NEGOCIACAO:
+        if resposta["acao"] == "rejeita" and numero == max_rodadas:
             _transitar(rodada, "OFFER_REJECTED", "vendedor rejeitou na última rodada")
             break
         _transitar(rodada, "COUNTER_OFFER",
@@ -555,30 +672,47 @@ async def _negociar(rodada: Rodada) -> None:
 
     if rodada.estado not in ("OFFER_ACCEPTED", "OFFER_REJECTED"):
         _transitar(rodada, "OFFER_REJECTED",
-                   f"acabaram as {MAX_RODADAS_NEGOCIACAO} rodadas sem acordo dentro do mandato")
-    await _pagar_negociacao(rodada, buyer)
+                   verificacao.motivo_da_negativa(
+                       verificacao.jogadas_validas(rodada.negociacao),
+                       nome_comprador=buyer["name"], max_rodadas=max_rodadas))
+    await _fechar_negociacao(rodada, buyer, violacoes, piso, preco_pedido)
 
 
-async def _pagar_negociacao(rodada: Rodada, buyer: dict) -> None:
-    """O Buyer Agent é pago pela negociação se tiver respeitado o mandato.
+async def _fechar_negociacao(rodada: Rodada, buyer: dict, violacoes: int,
+                             piso: int, preco_pedido: int) -> None:
+    """Confere o resultado da negociação por código e paga o Buyer Agent.
 
-    Conta de código: nenhuma jogada dele pode ter passado do teto, e se houve
-    acordo, o acordo tem que caber no teto.
+    O acordo só vale se o preço final couber nas DUAS faixas, a do comprador e a
+    do vendedor. Quem não fechou negócio mas respeitou a regra continua sendo
+    pago: o serviço contratado era negociar dentro do mandato, não vencer.
     """
-    teto = (rodada.mandato or {}).get("teto_preco")
-    ofertas = [j.get("valor") for j in rodada.negociacao
-               if j.get("de") == buyer["name"] and j.get("valor")]
-    estourou = [v for v in ofertas if teto is not None and v > teto]
-    conferencia = verificacao.conferir_mandato(rodada.preco_acordado, rodada.mandato) \
-        if rodada.preco_acordado else {"aprovado": True, "motivos": []}
-    respeitou = not estourou and conferencia["aprovado"]
-    _evento(rodada, "verificacao", "Orquestrador", buyer["name"],
-            (f"conferi por código as {len(ofertas)} jogadas do agente do comprador: nenhuma "
-             f"passou do teto de {comum.dinheiro(teto)}" if respeitou else
-             f"o agente do comprador furou o mandato em {len(estourou)} jogada(s)"),
-            dados_extra={"ofertas": ofertas, "teto": teto})
+    mandato = rodada.mandato or {}
+    if rodada.estado == "OFFER_ACCEPTED":
+        acordo = verificacao.conferir_acordo(
+            rodada.preco_acordado, oferta_min=mandato.get("oferta_min"),
+            teto=mandato.get("teto_preco"), piso=piso, preco_pedido=preco_pedido)
+        _evento(rodada, "verificacao", "Orquestrador", buyer["name"],
+                (f"conferi o acordo por código: {comum.dinheiro(rodada.preco_acordado)} cabe "
+                 f"na faixa do comprador e na faixa do vendedor"
+                 if acordo["aprovado"] else
+                 f"o acordo não fecha nas duas faixas: {acordo['motivos'][0]}"),
+                dados_extra={"acordo": acordo, "violacoes": violacoes})
+        respeitou = acordo["aprovado"] and violacoes == 0
+        if not acordo["aprovado"]:
+            # Não existe "fechou quase": preço fora de qualquer uma das duas
+            # faixas não é acordo, é erro, e erro não vira contrato.
+            _transitar(rodada, "ABORTED",
+                       f"o acordo não fecha nas duas faixas e não vai virar contrato: "
+                       f"{acordo['motivos'][0]}")
+    else:
+        _evento(rodada, "verificacao", "Orquestrador", buyer["name"],
+                f"não houve acordo. Jogadas fora da regra nesta negociação: {violacoes}.",
+                dados_extra={"violacoes": violacoes, "estado": rodada.estado})
+        respeitou = violacoes == 0
+
     await _pagar(rodada, buyer, "negociar_compra", 1, 1 if respeitou else 0,
-                 "negociou dentro do mandato" if respeitou else "furou o mandato do comprador")
+                 "negociou dentro do mandato" if respeitou else
+                 f"{violacoes} jogada(s) fora da regra da negociação")
 
 
 async def _transacionar(rodada: Rodada) -> None:

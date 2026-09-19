@@ -94,6 +94,9 @@ FICHAS_FIXAS: list[dict] = [
         "papel": "transaction",
         "preco_usd": 1.20,
         "simulado": True,
+        # Campo declarado da ficha, não adivinhação em cima do texto da estratégia:
+        # ler comportamento de prosa quebra na primeira vez que alguém reescreve a frase.
+        "confere_documentos": True,
         "estrategia": "Marca condição só quando o documento sustenta. Confere as condições "
                       "documentais uma a uma contra os documentos do imóvel.",
         "skills": [{"id": CONDUZIR_TRANSACAO,
@@ -111,6 +114,7 @@ FICHAS_FIXAS: list[dict] = [
         "papel": "transaction",
         "preco_usd": 0.55,
         "simulado": True,
+        "confere_documentos": False,
         "estrategia": "Fecha rápido com as condições mínimas. As condições documentais "
                       "ficam pendentes para o comprador resolver depois.",
         "skills": [{"id": CONDUZIR_TRANSACAO,

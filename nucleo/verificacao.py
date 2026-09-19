@@ -323,6 +323,134 @@ def conferir_condicoes(condicoes: list[dict], ate_fase: str | None = None) -> di
     }
 
 
+# ----------------------------------------------------- regras da negociação
+
+def _numero_no_texto(texto: str, numero: int | None) -> bool:
+    """O número aparece na mensagem, em qualquer formatação usual?
+
+    Um agente que escreve "meu teto é R$ 1.880.000" entrega a própria carta.
+    Procuramos o número cru, com ponto, com vírgula e em milhares.
+    """
+    if not numero or not texto:
+        return False
+    limpo = re.sub(r"[.\s]", "", texto)
+    formas = {str(numero), f"{numero:,}".replace(",", "."), f"{numero:,}"}
+    if numero % 1000 == 0:
+        formas.add(str(numero // 1000))
+    return any(re.sub(r"[.\s]", "", f) in limpo for f in formas)
+
+
+def conferir_jogada_comprador(jogada: dict, *, rodada: int, oferta_min: int | None,
+                              teto: int | None, maior_oferta_anterior: int | None) -> dict:
+    """Regras do lado do comprador, conferidas por código.
+
+    1. a primeira oferta é EXATAMENTE a oferta mínima autorizada;
+    2. oferta nova nunca é menor que a anterior;
+    3. nenhuma oferta passa do teto;
+    4. a mensagem não pode conter o teto (é a carta na manga do comprador).
+    """
+    motivos: list[str] = []
+    acao = (jogada.get("acao") or "").strip().lower()
+    valor = jogada.get("valor")
+    if acao == "oferta":
+        if valor is None:
+            motivos.append("jogada de oferta sem valor")
+        else:
+            if rodada == 1 and oferta_min is not None and valor != oferta_min:
+                motivos.append(
+                    f"a primeira oferta tem que ser exatamente a mínima autorizada "
+                    f"({oferta_min}), e veio {valor}")
+            if maior_oferta_anterior and valor < maior_oferta_anterior:
+                motivos.append(f"oferta {valor} é menor que a anterior {maior_oferta_anterior}")
+            if teto is not None and valor > teto:
+                motivos.append(f"oferta {valor} passa do teto do mandato {teto}")
+    if acao == "aceitar" and teto is not None and valor is not None and valor > teto:
+        motivos.append(f"aceitou {valor}, acima do teto do mandato {teto}")
+    if _numero_no_texto(jogada.get("mensagem") or "", teto):
+        motivos.append("a mensagem revela o teto do comprador ao vendedor")
+    return {"valida": not motivos, "motivos": motivos}
+
+
+def conferir_jogada_vendedor(jogada: dict, *, piso: int | None, preco_pedido: int | None,
+                             menor_contraproposta_anterior: int | None) -> dict:
+    """Regras do lado do vendedor.
+
+    1. contraproposta nunca sobe (ele cede aos poucos, não encarece);
+    2. nada abaixo do piso do proprietário;
+    3. nada acima do preço pedido;
+    4. a mensagem não pode conter o piso.
+    """
+    motivos: list[str] = []
+    acao = (jogada.get("acao") or "").strip().lower()
+    valor = jogada.get("valor")
+    if acao == "contraproposta":
+        if valor is None:
+            motivos.append("contraproposta sem valor")
+        else:
+            if menor_contraproposta_anterior and valor > menor_contraproposta_anterior:
+                motivos.append(f"contraproposta {valor} é maior que a anterior "
+                               f"{menor_contraproposta_anterior}")
+            if piso is not None and valor < piso:
+                motivos.append(f"contraproposta {valor} está abaixo do piso {piso}")
+            if preco_pedido is not None and valor > preco_pedido:
+                motivos.append(f"contraproposta {valor} passa do preço pedido {preco_pedido}")
+    if acao == "aceita" and piso is not None and valor is not None and valor < piso:
+        motivos.append(f"aceitou {valor}, abaixo do piso do proprietário {piso}")
+    if _numero_no_texto(jogada.get("mensagem") or "", piso):
+        motivos.append("a mensagem revela o piso do vendedor ao comprador")
+    return {"valida": not motivos, "motivos": motivos}
+
+
+def conferir_acordo(preco_final: int | None, *, oferta_min: int | None, teto: int | None,
+                    piso: int | None, preco_pedido: int | None) -> dict:
+    """Acordo só vale se o preço final couber nas DUAS faixas."""
+    motivos: list[str] = []
+    if preco_final is None:
+        motivos.append("não há preço acordado")
+        return {"aprovado": False, "motivos": motivos}
+    if teto is not None and preco_final > teto:
+        motivos.append(f"preço final {preco_final} passa do teto do comprador {teto}")
+    if oferta_min is not None and preco_final < oferta_min:
+        motivos.append(f"preço final {preco_final} está abaixo da oferta mínima autorizada "
+                       f"{oferta_min}, o que não faz sentido")
+    if piso is not None and preco_final < piso:
+        motivos.append(f"preço final {preco_final} está abaixo do piso do vendedor {piso}")
+    if preco_pedido is not None and preco_final > preco_pedido:
+        motivos.append(f"preço final {preco_final} passa do preço pedido {preco_pedido}")
+    return {"aprovado": not motivos, "motivos": motivos, "preco_final": preco_final}
+
+
+def jogadas_validas(negociacao: list[dict]) -> list[dict]:
+    """O histórico que cada lado pode ler.
+
+    Jogada descartada pela regra fica na lista para a tela e para o registro,
+    mas NÃO pode ser mostrada ao adversário: um número que a regra rejeitou,
+    lido pelo outro lado, vale tanto quanto uma jogada aceita. Medido: um
+    vendedor com piso de R$ 1,97 milhão "fechou" em R$ 1,78 milhão porque duas
+    contrapropostas descartadas continuaram visíveis para o comprador.
+    """
+    return [j for j in (negociacao or []) if not j.get("violacao")]
+
+
+def motivo_da_negativa(historico: list[dict], *, nome_comprador: str,
+                       max_rodadas: int) -> str:
+    """Explica em português por que não houve acordo. É isto que vai na tela."""
+    ofertas = [h.get("valor") for h in historico
+               if h.get("de") == nome_comprador and h.get("valor")]
+    contras = [h.get("valor") for h in historico
+               if h.get("de") != nome_comprador and h.get("valor")]
+    ultima_oferta = ofertas[-1] if ofertas else None
+    ultima_contra = contras[-1] if contras else None
+    if ultima_oferta is None or ultima_contra is None:
+        return (f"acabaram as {max_rodadas} rodadas sem os dois lados chegarem a um número "
+                f"comparável")
+    distancia = ultima_contra - ultima_oferta
+    return (f"acabaram as {max_rodadas} rodadas sem acordo: a última oferta do comprador foi "
+            f"R$ {ultima_oferta:,.0f} e a última contraproposta do vendedor foi "
+            f"R$ {ultima_contra:,.0f}, uma distância de R$ {distancia:,.0f}"
+            .replace(",", "."))
+
+
 def pagamento_proporcional(preco_usd: float, pedidos: int, provados: int) -> tuple[float, float]:
     """`pago = preço x provados / pedidos`. O resto fica retido e visível."""
     if pedidos <= 0:

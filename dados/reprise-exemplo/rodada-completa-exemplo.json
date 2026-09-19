@@ -1,0 +1,1602 @@
+{
+ "rodada_id": "rod-36f1b2c07b46",
+ "gravado_em": "2026-09-19T18:36:04.053002+00:00",
+ "duracao_total_s": 40.48,
+ "resumo": {
+  "rodada_id": "rod-36f1b2c07b46",
+  "frase": "Quero apartamento em Pinheiros até R$ 1,5 milhão, 2 quartos, 1 vaga, 70 m2, para morar.",
+  "estado": "COMPLETED",
+  "pedido": {
+   "tipo": "apartamento",
+   "cidade": "São Paulo",
+   "bairros": [
+    "Pinheiros"
+   ],
+   "preco_max": 1500000,
+   "quartos_min": 2,
+   "vagas_min": 1,
+   "area_min": 70,
+   "objetivo": "moradia",
+   "financiamento": false
+  },
+  "suposicoes": [
+   "o bairro Pinheiros está em São Paulo",
+   "o comprador aceita negociar o preço, mas não ultrapassa o teto de R$ 1,5 milhão",
+   "o comprador não mencionou necessidade de financiamento"
+  ],
+  "shortlist": [
+   {
+    "property_id": "SP1001",
+    "preco": 1005000,
+    "area": 74,
+    "quartos": 2,
+    "vagas": 1,
+    "localizacao": "Rua Fradique Coutinho, 407, Pinheiros",
+    "seller_agent": "AGT901",
+    "disponibilidade": "available",
+    "documentacao_status": "basic_verified",
+    "motivo": "Este apartamento em Pinheiros está com documentação em ordem, tem 2 quartos e 1 vaga, e atende aos requisitos do comprador.",
+    "indicado_por": "Casa Verificada",
+    "comparacao_preco": {
+     "mediana_bairro_m2": 12782.26,
+     "preco_m2": 13581.08,
+     "variacao": 0.0625
+    }
+   },
+   {
+    "property_id": "SP1006",
+    "preco": 1470000,
+    "area": 95,
+    "quartos": 2,
+    "vagas": 1,
+    "localizacao": "Rua Teodoro Sampaio, 245, Pinheiros",
+    "seller_agent": "AGT906",
+    "disponibilidade": "available",
+    "documentacao_status": "basic_verified",
+    "motivo": "Este apartamento em Pinheiros está com documentação em ordem, tem 2 quartos e 1 vaga, e atende aos requisitos do comprador.",
+    "indicado_por": "Casa Verificada",
+    "comparacao_preco": {
+     "mediana_bairro_m2": 12782.26,
+     "preco_m2": 15473.68,
+     "variacao": 0.2106
+    }
+   }
+  ],
+  "escolha": "SP1001",
+  "mandato": {
+   "teto_preco": 970000,
+   "prazo_dias": 60
+  },
+  "negociacao": [
+   {
+    "rodada": 1,
+    "de": "Porta Aberta",
+    "acao": "oferta",
+    "valor": 930000,
+    "mensagem": "Oferta inicial para o apartamento em Pinheiros",
+    "motivo": "Iniciando a negociação com um preço abaixo do teto e próximo do valor de mercado"
+   },
+   {
+    "rodada": 1,
+    "de": "Vendedor AGT901",
+    "acao": "contraproposta",
+    "valor": 950000,
+    "mensagem": "Agradecemos a oferta inicial, mas o proprietário está inclinado a negociar em torno de R$ 950.000.",
+    "motivo": "O proprietário tem pressa e quer um valor próximo do piso, mas ainda tem margem para negociar."
+   },
+   {
+    "rodada": 2,
+    "de": "Porta Aberta",
+    "acao": "aceitar",
+    "valor": 950000,
+    "mensagem": "Aceitamos a contraproposta de R$ 950.000",
+    "motivo": "aceitar a oferta mais baixa que cabe no teto"
+   }
+  ],
+  "preco_acordado": 950000,
+  "pacote": {
+   "kyc": {
+    "comprador": "aprovado",
+    "vendedor": "aprovado",
+    "simulado": true,
+    "observacao": "KYC simulado: nenhum documento de identidade real foi checado."
+   },
+   "contrato": {
+    "id": "ctr-089827c03db1",
+    "property_id": "SP1001",
+    "preco_acordado": 950000,
+    "resumo": "Promessa de compra e venda do imóvel SP1001. apartamento em Pinheiros. por R$ 950.000",
+    "assinado_em": "19/09/2026",
+    "simulado": true,
+    "conduzido_por": "Cartório Digital"
+   },
+   "condicoes": [
+    {
+     "id": "matricula_atualizada",
+     "nome": "Matricula atualizada e sem onus ativo",
+     "fase": "DOCUMENTS_VERIFIED",
+     "obrigatoria": true,
+     "prova": "documento",
+     "simulado": false,
+     "status": "atendida",
+     "motivo": "conferido no documento do imóvel em 19/09/2026"
+    },
+    {
+     "id": "certidoes_dentro_da_validade",
+     "nome": "Certidoes do vendedor dentro da validade",
+     "fase": "DOCUMENTS_VERIFIED",
+     "obrigatoria": true,
+     "prova": "documento",
+     "simulado": false,
+     "status": "atendida",
+     "motivo": "conferido no documento do imóvel em 19/09/2026"
+    },
+    {
+     "id": "iptu_sem_debito",
+     "nome": "IPTU e taxas municipais sem debito",
+     "fase": "DOCUMENTS_VERIFIED",
+     "obrigatoria": true,
+     "prova": "documento",
+     "simulado": false,
+     "status": "atendida",
+     "motivo": "conferido no documento do imóvel em 19/09/2026"
+    },
+    {
+     "id": "condominio_quitado",
+     "nome": "Condominio quitado",
+     "fase": "DOCUMENTS_VERIFIED",
+     "obrigatoria": true,
+     "prova": "documento",
+     "simulado": false,
+     "status": "atendida",
+     "motivo": "conferido no documento do imóvel em 19/09/2026"
+    },
+    {
+     "id": "kyc_comprador",
+     "nome": "KYC do comprador concluido",
+     "fase": "KYC_PENDING",
+     "obrigatoria": true,
+     "prova": "simulado",
+     "simulado": true,
+     "status": "atendida",
+     "motivo": "KYC do comprador concluido (simulado) em 19/09/2026"
+    },
+    {
+     "id": "kyc_vendedor",
+     "nome": "KYC do vendedor concluido",
+     "fase": "KYC_PENDING",
+     "obrigatoria": true,
+     "prova": "simulado",
+     "simulado": true,
+     "status": "atendida",
+     "motivo": "KYC do vendedor concluido (simulado) em 19/09/2026"
+    },
+    {
+     "id": "preco_dentro_do_mandato",
+     "nome": "Preco final dentro do mandato do comprador",
+     "fase": "OFFER_ACCEPTED",
+     "obrigatoria": true,
+     "prova": "calculo",
+     "simulado": false,
+     "status": "atendida",
+     "motivo": "preço acordado cabe no teto autorizado pelo comprador"
+    },
+    {
+     "id": "financiamento_aprovado",
+     "nome": "Financiamento aprovado pelo banco",
+     "fase": "CONTRACT_SIGNED",
+     "obrigatoria": false,
+     "prova": "simulado",
+     "simulado": true,
+     "status": "atendida",
+     "motivo": "carta de crédito simulada, sem banco real"
+    },
+    {
+     "id": "contrato_assinado",
+     "nome": "Contrato de compra e venda assinado",
+     "fase": "CONTRACT_SIGNED",
+     "obrigatoria": true,
+     "prova": "simulado",
+     "simulado": true,
+     "status": "atendida",
+     "motivo": "Contrato de compra e venda assinado (simulado) em 19/09/2026"
+    },
+    {
+     "id": "itbi_recolhido",
+     "nome": "ITBI recolhido",
+     "fase": "CONDITIONS_MET",
+     "obrigatoria": true,
+     "prova": "calculo",
+     "simulado": false,
+     "status": "atendida",
+     "motivo": "etapa simulada e carimbada em 19/09/2026"
+    },
+    {
+     "id": "escritura_lavrada",
+     "nome": "Escritura publica lavrada em cartorio de notas",
+     "fase": "CONDITIONS_MET",
+     "obrigatoria": true,
+     "prova": "simulado",
+     "simulado": true,
+     "status": "atendida",
+     "motivo": "etapa simulada e carimbada em 19/09/2026"
+    },
+    {
+     "id": "registro_na_matricula",
+     "nome": "Registro do titulo na matricula do imovel",
+     "fase": "PROPERTY_TRANSFERRED",
+     "obrigatoria": true,
+     "prova": "simulado",
+     "simulado": true,
+     "status": "atendida",
+     "motivo": "etapa simulada e carimbada em 19/09/2026"
+    }
+   ],
+   "custos_estimados": {
+    "itbi": 28500.0,
+    "escritura": 11400.0,
+    "registro": 8550.0,
+    "total": 48450.0,
+    "observacao": "percentuais aproximados, a conferir com o especialista do time"
+   },
+   "analise_documental": {
+    "status": "basic_verified",
+    "pendencias": [],
+    "pendencias_por_fonte": {},
+    "secoes": [
+     "matricula",
+     "certidao_iptu",
+     "certidao_distribuicao",
+     "condominio"
+    ],
+    "achados": {
+     "matricula": {
+      "onus_ativos": [],
+      "presente": true,
+      "validade": "06/12/2026",
+      "emissao": "06/09/2026"
+     },
+     "certidao_iptu": {
+      "validade": "06/03/2027",
+      "emissao": "06/09/2026",
+      "resultado": "NADA CONSTA"
+     },
+     "certidao_distribuicao": {
+      "validade": "06/12/2026",
+      "emissao": "06/09/2026",
+      "resultado": "NADA CONSTA"
+     },
+     "condominio": {
+      "validade": "06/10/2026",
+      "emissao": "06/09/2026",
+      "situacao": "ADIMPLENTE"
+     }
+    }
+   },
+   "simulado": true
+  },
+  "contratos": [
+   {
+    "id": "rec-e8d3035a1714",
+    "rodada_id": "rod-36f1b2c07b46",
+    "agente_id": "buyer-porta-aberta",
+    "skill": "entender_pedido",
+    "itens_pedidos": 1,
+    "itens_provados": 1,
+    "preco_usd": 0.3,
+    "pago_usd": 0.3,
+    "retido_usd": 0.0,
+    "motivo": "pedido estruturado conferido por código",
+    "agente_nome": "Porta Aberta"
+   },
+   {
+    "id": "rec-d6e2643dc864",
+    "rodada_id": "rod-36f1b2c07b46",
+    "agente_id": "property-casa-verificada",
+    "skill": "buscar_imoveis",
+    "itens_pedidos": 2,
+    "itens_provados": 2,
+    "preco_usd": 0.9,
+    "pago_usd": 0.9,
+    "retido_usd": 0.0,
+    "motivo": "2 de 2 imóveis passaram na verificação por código",
+    "agente_nome": "Casa Verificada"
+   },
+   {
+    "id": "rec-07a30a602fc3",
+    "rodada_id": "rod-36f1b2c07b46",
+    "agente_id": "property-busca-relampago",
+    "skill": "buscar_imoveis",
+    "itens_pedidos": 0,
+    "itens_provados": 0,
+    "preco_usd": 0.35,
+    "pago_usd": 0.0,
+    "retido_usd": 0.35,
+    "motivo": "0 de 0 imóveis passaram na verificação por código",
+    "agente_nome": "Busca Relâmpago"
+   },
+   {
+    "id": "rec-6c6d443cc0e2",
+    "rodada_id": "rod-36f1b2c07b46",
+    "agente_id": "buyer-porta-aberta",
+    "skill": "negociar_compra",
+    "itens_pedidos": 1,
+    "itens_provados": 1,
+    "preco_usd": 0.3,
+    "pago_usd": 0.3,
+    "retido_usd": 0.0,
+    "motivo": "negociou dentro do mandato",
+    "agente_nome": "Porta Aberta"
+   },
+   {
+    "id": "rec-50e24d2dae5b",
+    "rodada_id": "rod-36f1b2c07b46",
+    "agente_id": "transaction-cartorio-digital",
+    "skill": "conduzir_transacao",
+    "itens_pedidos": 8,
+    "itens_provados": 8,
+    "preco_usd": 1.2,
+    "pago_usd": 1.2,
+    "retido_usd": 0.0,
+    "motivo": "todas as condições obrigatórias desta fase atendidas",
+    "agente_nome": "Cartório Digital"
+   },
+   {
+    "id": "rec-e9483a0f823c",
+    "rodada_id": "rod-36f1b2c07b46",
+    "agente_id": "payment-escrow-guardiao",
+    "skill": "custodia_pagamento",
+    "itens_pedidos": 2,
+    "itens_provados": 2,
+    "preco_usd": 0.8,
+    "pago_usd": 0.8,
+    "retido_usd": 0.0,
+    "motivo": "reservou e liberou com conferência",
+    "agente_nome": "Escrow Guardião"
+   }
+  ],
+  "memoria_usada": null,
+  "custo_busca_usd": 0.000462,
+  "erro": null,
+  "trabalhando": false,
+  "duracao_s": 40.5,
+  "concluida": true,
+  "gravacao": null,
+  "escrow": {
+   "saldo_brl": 0.0,
+   "lancamentos": [
+    {
+     "id": "esc-7830b38bad43",
+     "rodada_id": "rod-36f1b2c07b46",
+     "ts": 1789842962.596392,
+     "tipo": "reserva",
+     "valor_brl": 950000.0,
+     "motivo": "fundos reservados para o imóvel SP1001"
+    },
+    {
+     "id": "esc-67c5b9a09ee1",
+     "rodada_id": "rod-36f1b2c07b46",
+     "ts": 1789842963.3749676,
+     "tipo": "liberacao",
+     "valor_brl": 950000.0,
+     "motivo": "todas as 10 condições obrigatórias conferidas"
+    }
+   ]
+  },
+  "motor_de_estado": "agno session_state (sqlite)",
+  "placar": {
+   "decisoes_sem_humano": 13,
+   "repasses": 27,
+   "intervencoes_humanas": 3,
+   "verificacoes": 9,
+   "chamadas_auto": 8,
+   "chamadas_total": 8,
+   "custo_total_usd": 0.001465
+  }
+ },
+ "eventos": [
+  {
+   "t": 0.0,
+   "estado": "SEARCH",
+   "tipo": "humano",
+   "de": "Comprador",
+   "para": "Buyer Agent",
+   "motivo": "o comprador escreveu: \"Quero apartamento em Pinheiros até R$ 1,5 milhão, 2 quartos, 1 vaga, 70 m2, para morar.\"",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 0.91,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Registry",
+   "motivo": "perguntei ao marketplace quem faz \"buscar_imoveis\": 2 agente(s). Casa Verificada (US$ 0.90), Busca Relâmpago (US$ 0.35)",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "buscar_imoveis",
+    "candidatos": [
+     "property-casa-verificada",
+     "property-busca-relampago"
+    ]
+   }
+  },
+  {
+   "t": 0.916,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Registry",
+   "motivo": "perguntei ao marketplace quem faz \"entender_pedido\": 1 agente(s). Porta Aberta (US$ 0.30)",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "entender_pedido",
+    "candidatos": [
+     "buyer-porta-aberta"
+    ]
+   }
+  },
+  {
+   "t": 0.923,
+   "estado": "SEARCH",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "contratei Porta Aberta: era o único candidato para \"entender_pedido\" nesta contratação. Preço US$ 0.30.",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "entender_pedido",
+    "escolhido": "buyer-porta-aberta"
+   }
+  },
+  {
+   "t": 0.929,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "deleguei \"entender_pedido\" para Porta Aberta: transformar a frase do comprador em filtros",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "entender_pedido",
+    "orcamento_usd": 0.5,
+    "criterios_de_aceite": [
+     "pedido estruturado"
+    ]
+   }
+  },
+  {
+   "t": 4.746,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Porta Aberta",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 0.0001307,
+   "dados": {
+    "etapa": "entender_pedido",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "buyer-porta-aberta",
+    "motor": "agno",
+    "esquema": "PedidoEntendido"
+   }
+  },
+  {
+   "t": 4.753,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Porta Aberta",
+   "para": "Orquestrador",
+   "motivo": "Porta Aberta devolveu a entrega de \"entender_pedido\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "entender_pedido"
+   }
+  },
+  {
+   "t": 4.758,
+   "estado": "SEARCH",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "conferi o pedido por código: {\"tipo\": \"apartamento\", \"cidade\": \"São Paulo\", \"bairros\": [\"Pinheiros\"], \"preco_max\": 1500000, \"quartos_min\": 2, \"vagas_min\": 1, \"area_min\": 70, \"objetivo\": \"moradia\", \"financiamento\": false}",
+   "custo_usd": 0.0,
+   "dados": {
+    "aprovado": true,
+    "fonte": "modelo"
+   }
+  },
+  {
+   "t": 5.177,
+   "estado": "SEARCH",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "paguei US$ 0.30 de US$ 0.30 a Porta Aberta (1 de 1 itens provados). Retido: US$ 0.00. Recibo publicado no marketplace.",
+   "custo_usd": 0.0,
+   "dados": {
+    "recibo": {
+     "id": "rec-e8d3035a1714",
+     "rodada_id": "rod-36f1b2c07b46",
+     "agente_id": "buyer-porta-aberta",
+     "skill": "entender_pedido",
+     "itens_pedidos": 1,
+     "itens_provados": 1,
+     "preco_usd": 0.3,
+     "pago_usd": 0.3,
+     "retido_usd": 0.0,
+     "motivo": "pedido estruturado conferido por código"
+    }
+   }
+  },
+  {
+   "t": 13.445,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Orquestrador",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 0.0001232,
+   "dados": {
+    "etapa": "avaliar:buscar_imoveis",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "orchestrator",
+    "motor": "agno",
+    "esquema": "EscolhaDeFornecedor"
+   }
+  },
+  {
+   "t": 13.456,
+   "estado": "SEARCH",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Casa Verificada",
+   "motivo": "contratei Casa Verificada por US$ 0.90: Este agente tem histórico de entregas verificadas e taxa de aprovação alta, o que indica confiabilidade na busca e conferência dos imóveis. O outro agente não tem histórico de itens provados. [o marketplace já tem histórico: taxa de aprovação pesa mais que preço]",
+   "custo_usd": 0.0001232,
+   "dados": {
+    "capacidade": "buscar_imoveis",
+    "escolhido": "property-casa-verificada",
+    "candidatos": [
+     "property-casa-verificada",
+     "property-busca-relampago"
+    ],
+    "orcamento_usd": 1.2,
+    "criterios_de_aceite": [
+     "todo imóvel devolvido existe na base e bate com os filtros do pedido",
+     "a disponibilidade afirmada bate com a da base",
+     "o status de documentação afirmado bate com o que os documentos dizem",
+     "pelo menos 3 imóveis aprovados"
+    ],
+    "politica": "Já existe histórico verificado no marketplace. Use a taxa de aprovação antes do preço: agente que já foi reprovado custa caro em retrabalho.",
+    "sem_historico": false
+   }
+  },
+  {
+   "t": 13.461,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Casa Verificada",
+   "motivo": "deleguei \"buscar_imoveis\" para Casa Verificada: achar até 4 imóveis que atendam ao pedido",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "buscar_imoveis",
+    "orcamento_usd": 0.9,
+    "criterios_de_aceite": [
+     "todo imóvel devolvido existe na base e bate com os filtros do pedido",
+     "a disponibilidade afirmada bate com a da base",
+     "o status de documentação afirmado bate com o que os documentos dizem",
+     "pelo menos 3 imóveis aprovados"
+    ]
+   }
+  },
+  {
+   "t": 19.544,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Casa Verificada",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 0.0003312,
+   "dados": {
+    "etapa": "buscar_imoveis",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "property-casa-verificada",
+    "motor": "agno",
+    "esquema": "ListaImoveis"
+   }
+  },
+  {
+   "t": 19.55,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Casa Verificada",
+   "para": "Orquestrador",
+   "motivo": "Casa Verificada devolveu a entrega de \"buscar_imoveis\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "buscar_imoveis"
+   }
+  },
+  {
+   "t": 19.556,
+   "estado": "SEARCH",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Casa Verificada",
+   "motivo": "conferi por código os 2 imóveis de Casa Verificada: 2 passaram. SP1001: passou | SP1006: passou",
+   "custo_usd": 0.0,
+   "dados": {
+    "conferencia": {
+     "itens": [
+      {
+       "property_id": "SP1001",
+       "aprovado": true,
+       "motivos": [],
+       "conferido": {
+        "disponibilidade": "available",
+        "documentacao_status": "basic_verified",
+        "pendencias_documentais": [],
+        "preco": 1005000,
+        "comparacao_preco": {
+         "mediana_bairro_m2": 12782.26,
+         "preco_m2": 13581.08,
+         "variacao": 0.0625
+        }
+       }
+      },
+      {
+       "property_id": "SP1006",
+       "aprovado": true,
+       "motivos": [],
+       "conferido": {
+        "disponibilidade": "available",
+        "documentacao_status": "basic_verified",
+        "pendencias_documentais": [],
+        "preco": 1470000,
+        "comparacao_preco": {
+         "mediana_bairro_m2": 12782.26,
+         "preco_m2": 15473.68,
+         "variacao": 0.2106
+        }
+       }
+      }
+     ],
+     "pedidos": 2,
+     "provados": 2,
+     "aprovados": [
+      "SP1001",
+      "SP1006"
+     ],
+     "reprovados": []
+    }
+   }
+  },
+  {
+   "t": 20.126,
+   "estado": "SEARCH",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Casa Verificada",
+   "motivo": "paguei US$ 0.90 de US$ 0.90 a Casa Verificada (2 de 2 itens provados). Retido: US$ 0.00. Recibo publicado no marketplace.",
+   "custo_usd": 0.0,
+   "dados": {
+    "recibo": {
+     "id": "rec-d6e2643dc864",
+     "rodada_id": "rod-36f1b2c07b46",
+     "agente_id": "property-casa-verificada",
+     "skill": "buscar_imoveis",
+     "itens_pedidos": 2,
+     "itens_provados": 2,
+     "preco_usd": 0.9,
+     "pago_usd": 0.9,
+     "retido_usd": 0.0,
+     "motivo": "2 de 2 imóveis passaram na verificação por código"
+    }
+   }
+  },
+  {
+   "t": 20.131,
+   "estado": "SEARCH",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Busca Relâmpago",
+   "motivo": "contratei Busca Relâmpago: era o único candidato para \"buscar_imoveis\" nesta contratação. Preço US$ 0.35.",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "buscar_imoveis",
+    "escolhido": "property-busca-relampago"
+   }
+  },
+  {
+   "t": 20.135,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Busca Relâmpago",
+   "motivo": "deleguei \"buscar_imoveis\" para Busca Relâmpago: achar até 2 imóveis que atendam ao pedido",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "buscar_imoveis",
+    "orcamento_usd": 0.35,
+    "criterios_de_aceite": [
+     "todo imóvel devolvido existe na base e bate com os filtros do pedido",
+     "a disponibilidade afirmada bate com a da base",
+     "o status de documentação afirmado bate com o que os documentos dizem",
+     "pelo menos 3 imóveis aprovados"
+    ]
+   }
+  },
+  {
+   "t": 20.571,
+   "estado": "SEARCH",
+   "tipo": "repasse",
+   "de": "Busca Relâmpago",
+   "para": "Orquestrador",
+   "motivo": "Busca Relâmpago devolveu a entrega de \"buscar_imoveis\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "buscar_imoveis"
+   }
+  },
+  {
+   "t": 20.577,
+   "estado": "SEARCH",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Busca Relâmpago",
+   "motivo": "conferi por código os 0 imóveis de Busca Relâmpago: 0 passaram. ",
+   "custo_usd": 0.0,
+   "dados": {
+    "conferencia": {
+     "itens": [],
+     "pedidos": 0,
+     "provados": 0,
+     "aprovados": [],
+     "reprovados": []
+    }
+   }
+  },
+  {
+   "t": 21.178,
+   "estado": "SEARCH",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Busca Relâmpago",
+   "motivo": "paguei US$ 0.00 de US$ 0.35 a Busca Relâmpago (0 de 0 itens provados). Retido: US$ 0.35. Recibo publicado no marketplace.",
+   "custo_usd": 0.0,
+   "dados": {
+    "recibo": {
+     "id": "rec-07a30a602fc3",
+     "rodada_id": "rod-36f1b2c07b46",
+     "agente_id": "property-busca-relampago",
+     "skill": "buscar_imoveis",
+     "itens_pedidos": 0,
+     "itens_provados": 0,
+     "preco_usd": 0.35,
+     "pago_usd": 0.0,
+     "retido_usd": 0.35,
+     "motivo": "0 de 0 imóveis passaram na verificação por código"
+    }
+   }
+  },
+  {
+   "t": 21.191,
+   "estado": "SHORTLIST",
+   "tipo": "estado",
+   "de": "SEARCH",
+   "para": "SHORTLIST",
+   "motivo": "2 imóveis verificados prontos para o comprador escolher",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 22.706,
+   "estado": "SHORTLIST",
+   "tipo": "humano",
+   "de": "Comprador",
+   "para": "Buyer Agent",
+   "motivo": "o comprador escolheu o imóvel SP1001 da shortlist",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 22.716,
+   "estado": "PROPERTY_SELECTED",
+   "tipo": "estado",
+   "de": "SHORTLIST",
+   "para": "PROPERTY_SELECTED",
+   "motivo": "comprador escolheu SP1001",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 22.748,
+   "estado": "PROPERTY_SELECTED",
+   "tipo": "humano",
+   "de": "Comprador",
+   "para": "Buyer Agent",
+   "motivo": "o comprador autorizou a oferta com teto de R$ 970.000 e prazo de 60 dias. A partir daqui ninguém mais consulta o comprador.",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 23.311,
+   "estado": "PROPERTY_SELECTED",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Registry",
+   "motivo": "perguntei ao marketplace quem faz \"negociar_compra\": 1 agente(s). Porta Aberta (US$ 0.30)",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "negociar_compra",
+    "candidatos": [
+     "buyer-porta-aberta"
+    ]
+   }
+  },
+  {
+   "t": 23.321,
+   "estado": "PROPERTY_SELECTED",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "contratei Porta Aberta: era o único candidato para \"negociar_compra\" nesta contratação. Preço US$ 0.30.",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "negociar_compra",
+    "escolhido": "buyer-porta-aberta"
+   }
+  },
+  {
+   "t": 23.857,
+   "estado": "PROPERTY_SELECTED",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Registry",
+   "motivo": "perguntei ao marketplace quem faz \"negociar_venda\": 1 agente(s). Vendedor AGT901 (US$ 0.00)",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "negociar_venda",
+    "candidatos": [
+     "seller-AGT901"
+    ]
+   }
+  },
+  {
+   "t": 23.865,
+   "estado": "PROPERTY_SELECTED",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Vendedor AGT901",
+   "motivo": "contratei Vendedor AGT901: era o único candidato para \"negociar_venda\" nesta contratação. Preço US$ 0.00.",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "negociar_venda",
+    "escolhido": "seller-AGT901"
+   }
+  },
+  {
+   "t": 23.874,
+   "estado": "OFFER_CREATED",
+   "tipo": "estado",
+   "de": "PROPERTY_SELECTED",
+   "para": "OFFER_CREATED",
+   "motivo": "Porta Aberta vai montar a primeira oferta",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 23.88,
+   "estado": "OFFER_CREATED",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "deleguei \"negociar_compra\" para Porta Aberta: rodada 1 da negociação",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "negociar_compra",
+    "orcamento_usd": 0.0,
+    "criterios_de_aceite": [
+     "valor dentro do teto"
+    ]
+   }
+  },
+  {
+   "t": 25.787,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Porta Aberta",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 0.0001047,
+   "dados": {
+    "etapa": "negociar_compra:r1",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "buyer-porta-aberta",
+    "motor": "agno",
+    "esquema": "JogadaCompra"
+   }
+  },
+  {
+   "t": 25.794,
+   "estado": "OFFER_CREATED",
+   "tipo": "repasse",
+   "de": "Porta Aberta",
+   "para": "Orquestrador",
+   "motivo": "Porta Aberta devolveu a entrega de \"negociar_compra\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "negociar_compra"
+   }
+  },
+  {
+   "t": 25.8,
+   "estado": "OFFER_CREATED",
+   "tipo": "repasse",
+   "de": "Porta Aberta",
+   "para": "Vendedor AGT901",
+   "motivo": "rodada 1: oferta de R$ 930.000. Oferta inicial para o apartamento em Pinheiros Motivo: Iniciando a negociação com um preço abaixo do teto e próximo do valor de mercado",
+   "custo_usd": 0.0,
+   "dados": {
+    "jogada": {
+     "acao": "oferta",
+     "valor": 930000,
+     "mensagem": "Oferta inicial para o apartamento em Pinheiros",
+     "motivo": "Iniciando a negociação com um preço abaixo do teto e próximo do valor de mercado"
+    }
+   }
+  },
+  {
+   "t": 25.809,
+   "estado": "OFFER_SENT",
+   "tipo": "estado",
+   "de": "OFFER_CREATED",
+   "para": "OFFER_SENT",
+   "motivo": "oferta 1 enviada ao vendedor",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 25.813,
+   "estado": "OFFER_SENT",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Vendedor AGT901",
+   "motivo": "deleguei \"negociar_venda\" para Vendedor AGT901: responder à oferta 1",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "negociar_venda",
+    "orcamento_usd": 0.0,
+    "criterios_de_aceite": [
+     "aceita, contraproposta ou rejeita"
+    ]
+   }
+  },
+  {
+   "t": 28.21,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Vendedor AGT901",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 8.82e-05,
+   "dados": {
+    "etapa": "negociar_venda:r1",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "seller-AGT901",
+    "motor": "agno",
+    "esquema": "JogadaVenda"
+   }
+  },
+  {
+   "t": 28.222,
+   "estado": "OFFER_SENT",
+   "tipo": "repasse",
+   "de": "Vendedor AGT901",
+   "para": "Orquestrador",
+   "motivo": "Vendedor AGT901 devolveu a entrega de \"negociar_venda\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "negociar_venda"
+   }
+  },
+  {
+   "t": 28.235,
+   "estado": "OFFER_SENT",
+   "tipo": "repasse",
+   "de": "Vendedor AGT901",
+   "para": "Porta Aberta",
+   "motivo": "rodada 1: contraproposta de R$ 950.000. Agradecemos a oferta inicial, mas o proprietário está inclinado a negociar em torno de R$ 950.000. Motivo: O proprietário tem pressa e quer um valor próximo do piso, mas ainda tem margem para negociar.",
+   "custo_usd": 0.0,
+   "dados": {
+    "jogada": {
+     "acao": "contraproposta",
+     "valor": 950000,
+     "mensagem": "Agradecemos a oferta inicial, mas o proprietário está inclinado a negociar em torno de R$ 950.000.",
+     "motivo": "O proprietário tem pressa e quer um valor próximo do piso, mas ainda tem margem para negociar."
+    }
+   }
+  },
+  {
+   "t": 28.25,
+   "estado": "COUNTER_OFFER",
+   "tipo": "estado",
+   "de": "OFFER_SENT",
+   "para": "COUNTER_OFFER",
+   "motivo": "contraproposta de R$ 950.000",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 28.264,
+   "estado": "COUNTER_OFFER",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "deleguei \"negociar_compra\" para Porta Aberta: rodada 2 da negociação",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "negociar_compra",
+    "orcamento_usd": 0.0,
+    "criterios_de_aceite": [
+     "valor dentro do teto"
+    ]
+   }
+  },
+  {
+   "t": 30.356,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Porta Aberta",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 0.0001135,
+   "dados": {
+    "etapa": "negociar_compra:r2",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "buyer-porta-aberta",
+    "motor": "agno",
+    "esquema": "JogadaCompra"
+   }
+  },
+  {
+   "t": 30.363,
+   "estado": "COUNTER_OFFER",
+   "tipo": "repasse",
+   "de": "Porta Aberta",
+   "para": "Orquestrador",
+   "motivo": "Porta Aberta devolveu a entrega de \"negociar_compra\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "negociar_compra"
+   }
+  },
+  {
+   "t": 30.369,
+   "estado": "COUNTER_OFFER",
+   "tipo": "repasse",
+   "de": "Porta Aberta",
+   "para": "Vendedor AGT901",
+   "motivo": "rodada 2: aceitar de R$ 950.000. Aceitamos a contraproposta de R$ 950.000 Motivo: aceitar a oferta mais baixa que cabe no teto",
+   "custo_usd": 0.0,
+   "dados": {
+    "jogada": {
+     "acao": "aceitar",
+     "valor": 950000,
+     "mensagem": "Aceitamos a contraproposta de R$ 950.000",
+     "motivo": "aceitar a oferta mais baixa que cabe no teto"
+    }
+   }
+  },
+  {
+   "t": 30.376,
+   "estado": "OFFER_ACCEPTED",
+   "tipo": "estado",
+   "de": "COUNTER_OFFER",
+   "para": "OFFER_ACCEPTED",
+   "motivo": "acordo em R$ 950.000 na rodada 2",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 30.381,
+   "estado": "OFFER_ACCEPTED",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "conferi por código as 2 jogadas do agente do comprador: nenhuma passou do teto de R$ 970.000",
+   "custo_usd": 0.0,
+   "dados": {
+    "ofertas": [
+     930000,
+     950000
+    ],
+    "teto": 970000
+   }
+  },
+  {
+   "t": 30.848,
+   "estado": "OFFER_ACCEPTED",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Porta Aberta",
+   "motivo": "paguei US$ 0.30 de US$ 0.30 a Porta Aberta (1 de 1 itens provados). Retido: US$ 0.00. Recibo publicado no marketplace.",
+   "custo_usd": 0.0,
+   "dados": {
+    "recibo": {
+     "id": "rec-6c6d443cc0e2",
+     "rodada_id": "rod-36f1b2c07b46",
+     "agente_id": "buyer-porta-aberta",
+     "skill": "negociar_compra",
+     "itens_pedidos": 1,
+     "itens_provados": 1,
+     "preco_usd": 0.3,
+     "pago_usd": 0.3,
+     "retido_usd": 0.0,
+     "motivo": "negociou dentro do mandato"
+    }
+   }
+  },
+  {
+   "t": 30.853,
+   "estado": "OFFER_ACCEPTED",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Buyer Agent",
+   "motivo": "conferi por código: R$ 950.000 cabe no teto de R$ 970.000",
+   "custo_usd": 0.0,
+   "dados": {
+    "conferencia": {
+     "aprovado": true,
+     "motivos": [],
+     "preco_acordado": 950000,
+     "teto": 970000
+    }
+   }
+  },
+  {
+   "t": 30.861,
+   "estado": "KYC_PENDING",
+   "tipo": "estado",
+   "de": "OFFER_ACCEPTED",
+   "para": "KYC_PENDING",
+   "motivo": "acordo fechado, começa a papelada (simulada)",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 31.372,
+   "estado": "KYC_PENDING",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Registry",
+   "motivo": "perguntei ao marketplace quem faz \"conduzir_transacao\": 2 agente(s). Cartório Digital (US$ 1.20), Fecha Rápido (US$ 0.55)",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "conduzir_transacao",
+    "candidatos": [
+     "transaction-cartorio-digital",
+     "transaction-fecha-rapido"
+    ]
+   }
+  },
+  {
+   "t": 35.281,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Orquestrador",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 0.0001147,
+   "dados": {
+    "etapa": "avaliar:conduzir_transacao",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "orchestrator",
+    "motor": "agno",
+    "esquema": "EscolhaDeFornecedor"
+   }
+  },
+  {
+   "t": 35.297,
+   "estado": "KYC_PENDING",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Cartório Digital",
+   "motivo": "contratei Cartório Digital por US$ 1.20: Escolhi o Cartório Digital porque tem experiência comprovada com 4 entregas e 100% de taxa de aprovação, e sua estratégia de conferir as condições documentais uma a uma contra os documentos do imóvel parece mais segura. O outro agente não tem histórico de entregas verificadas. [o marketplace já tem histórico: taxa de aprovação pesa mais que preço]",
+   "custo_usd": 0.0001147,
+   "dados": {
+    "capacidade": "conduzir_transacao",
+    "escolhido": "transaction-cartorio-digital",
+    "candidatos": [
+     "transaction-cartorio-digital",
+     "transaction-fecha-rapido"
+    ],
+    "orcamento_usd": 1.5,
+    "criterios_de_aceite": [
+     "todas as condições precedentes obrigatórias atendidas antes do pagamento",
+     "condições documentais conferidas contra os documentos do imóvel"
+    ],
+    "politica": "Já existe histórico verificado no marketplace. Use a taxa de aprovação antes do preço: agente que já foi reprovado custa caro em retrabalho.",
+    "sem_historico": false
+   }
+  },
+  {
+   "t": 35.313,
+   "estado": "KYC_PENDING",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Cartório Digital",
+   "motivo": "deleguei \"conduzir_transacao\" para Cartório Digital: montar KYC, contrato e a lista de condições precedentes",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "conduzir_transacao",
+    "orcamento_usd": 1.2,
+    "criterios_de_aceite": [
+     "todas as condições precedentes obrigatórias atendidas antes do pagamento",
+     "condições documentais conferidas contra os documentos do imóvel"
+    ]
+   }
+  },
+  {
+   "t": 35.765,
+   "estado": "KYC_PENDING",
+   "tipo": "repasse",
+   "de": "Cartório Digital",
+   "para": "Orquestrador",
+   "motivo": "Cartório Digital devolveu a entrega de \"conduzir_transacao\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "conduzir_transacao"
+   }
+  },
+  {
+   "t": 35.773,
+   "estado": "KYC_PENDING",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Cartório Digital",
+   "motivo": "conferi por código as condições até a assinatura: 9 de 9 atendidas, 8 obrigatórias. Nenhuma pendência.",
+   "custo_usd": 0.0,
+   "dados": {
+    "conferencia": {
+     "aprovado": true,
+     "total": 9,
+     "obrigatorias": 8,
+     "atendidas": 9,
+     "pendentes": []
+    }
+   }
+  },
+  {
+   "t": 36.265,
+   "estado": "KYC_PENDING",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Cartório Digital",
+   "motivo": "paguei US$ 1.20 de US$ 1.20 a Cartório Digital (8 de 8 itens provados). Retido: US$ 0.00. Recibo publicado no marketplace.",
+   "custo_usd": 0.0,
+   "dados": {
+    "recibo": {
+     "id": "rec-50e24d2dae5b",
+     "rodada_id": "rod-36f1b2c07b46",
+     "agente_id": "transaction-cartorio-digital",
+     "skill": "conduzir_transacao",
+     "itens_pedidos": 8,
+     "itens_provados": 8,
+     "preco_usd": 1.2,
+     "pago_usd": 1.2,
+     "retido_usd": 0.0,
+     "motivo": "todas as condições obrigatórias desta fase atendidas"
+    }
+   }
+  },
+  {
+   "t": 36.275,
+   "estado": "DOCUMENTS_VERIFIED",
+   "tipo": "estado",
+   "de": "KYC_PENDING",
+   "para": "DOCUMENTS_VERIFIED",
+   "motivo": "documentação conferida por código",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 36.283,
+   "estado": "CONTRACT_SIGNED",
+   "tipo": "estado",
+   "de": "DOCUMENTS_VERIFIED",
+   "para": "CONTRACT_SIGNED",
+   "motivo": "contrato assinado (SIMULADO)",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 36.732,
+   "estado": "CONTRACT_SIGNED",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Registry",
+   "motivo": "perguntei ao marketplace quem faz \"custodia_pagamento\": 2 agente(s). Escrow Guardião (US$ 0.80), Liquida Já (US$ 0.45)",
+   "custo_usd": 0.0,
+   "dados": {
+    "capacidade": "custodia_pagamento",
+    "candidatos": [
+     "payment-escrow-guardiao",
+     "payment-liquida-ja"
+    ]
+   }
+  },
+  {
+   "t": 38.353,
+   "estado": null,
+   "tipo": "chamada",
+   "de": "Orquestrador",
+   "para": "NeuraLake",
+   "motivo": "chamou a NeuraLake em auto (a NeuraLake roteou para text)",
+   "custo_usd": 0.0001107,
+   "dados": {
+    "etapa": "avaliar:custodia_pagamento",
+    "capacidade_pedida": "auto",
+    "capacidade_usada": "auto",
+    "modelo_roteado": "text",
+    "plano_b": false,
+    "motivo_plano_b": "",
+    "tentativas": 1,
+    "agente_id": "orchestrator",
+    "motor": "agno",
+    "esquema": "EscolhaDeFornecedor"
+   }
+  },
+  {
+   "t": 38.358,
+   "estado": "CONTRACT_SIGNED",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Escrow Guardião",
+   "motivo": "contratei Escrow Guardião por US$ 0.80: Escolhi o Escrow Guardião porque faz custódia do pagamento e tem histórico de entregas aprovadas. O Liquida Já não faz custódia e não tem histórico de entregas. [o marketplace já tem histórico: taxa de aprovação pesa mais que preço]",
+   "custo_usd": 0.0001107,
+   "dados": {
+    "capacidade": "custodia_pagamento",
+    "escolhido": "payment-escrow-guardiao",
+    "candidatos": [
+     "payment-escrow-guardiao",
+     "payment-liquida-ja"
+    ],
+    "orcamento_usd": 1.0,
+    "criterios_de_aceite": [
+     "reservar os fundos antes de qualquer liberação",
+     "não liberar nada sem todas as condições obrigatórias conferidas"
+    ],
+    "politica": "Já existe histórico verificado no marketplace. Use a taxa de aprovação antes do preço: agente que já foi reprovado custa caro em retrabalho.",
+    "sem_historico": false
+   }
+  },
+  {
+   "t": 38.366,
+   "estado": "CONTRACT_SIGNED",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Escrow Guardião",
+   "motivo": "deleguei \"custodia_pagamento\" para Escrow Guardião: reservar R$ 950000 em escrow",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "custodia_pagamento",
+    "orcamento_usd": 0.8,
+    "criterios_de_aceite": [
+     "reservar os fundos antes de qualquer liberação",
+     "não liberar nada sem todas as condições obrigatórias conferidas"
+    ]
+   }
+  },
+  {
+   "t": 39.041,
+   "estado": "CONTRACT_SIGNED",
+   "tipo": "repasse",
+   "de": "Escrow Guardião",
+   "para": "Orquestrador",
+   "motivo": "Escrow Guardião devolveu a entrega de \"custodia_pagamento\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "custodia_pagamento"
+   }
+  },
+  {
+   "t": 39.049,
+   "estado": "CONTRACT_SIGNED",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Escrow Guardião",
+   "motivo": "conferi o razão de escrow: R$ 950.000 reservados",
+   "custo_usd": 0.0,
+   "dados": {
+    "reserva": {
+     "escrow_id": "esc-7830b38bad43",
+     "reservado": true,
+     "simulado": true,
+     "saldo_escrow": 950000.0,
+     "observacao": "reserva SIMULADA, registrada no razão de escrow"
+    }
+   }
+  },
+  {
+   "t": 39.062,
+   "estado": "FUNDS_LOCKED",
+   "tipo": "estado",
+   "de": "CONTRACT_SIGNED",
+   "para": "FUNDS_LOCKED",
+   "motivo": "fundos reservados no escrow (SIMULADO)",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 39.067,
+   "estado": "FUNDS_LOCKED",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "condições precedentes",
+   "motivo": "conferi por código as condições precedentes até a liberação: 11 de 11 atendidas, sendo 10 obrigatórias e 0 delas pendentes.",
+   "custo_usd": 0.0,
+   "dados": {
+    "conferencia": {
+     "aprovado": true,
+     "total": 11,
+     "obrigatorias": 10,
+     "atendidas": 11,
+     "pendentes": []
+    }
+   }
+  },
+  {
+   "t": 39.077,
+   "estado": "CONDITIONS_MET",
+   "tipo": "estado",
+   "de": "FUNDS_LOCKED",
+   "para": "CONDITIONS_MET",
+   "motivo": "todas as condições obrigatórias conferidas por código",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 39.077,
+   "estado": "CONDITIONS_MET",
+   "tipo": "repasse",
+   "de": "Orquestrador",
+   "para": "Escrow Guardião",
+   "motivo": "deleguei \"custodia_pagamento\" para Escrow Guardião: conferir as condições e liberar o pagamento",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "custodia_pagamento",
+    "orcamento_usd": 0.8,
+    "criterios_de_aceite": [
+     "reservar os fundos antes de qualquer liberação",
+     "não liberar nada sem todas as condições obrigatórias conferidas"
+    ]
+   }
+  },
+  {
+   "t": 39.82,
+   "estado": "CONDITIONS_MET",
+   "tipo": "repasse",
+   "de": "Escrow Guardião",
+   "para": "Orquestrador",
+   "motivo": "Escrow Guardião devolveu a entrega de \"custodia_pagamento\"",
+   "custo_usd": 0.0,
+   "dados": {
+    "skill": "custodia_pagamento"
+   }
+  },
+  {
+   "t": 39.825,
+   "estado": "CONDITIONS_MET",
+   "tipo": "verificacao",
+   "de": "Orquestrador",
+   "para": "Escrow Guardião",
+   "motivo": "pagamento liberado (SIMULADO). Saldo do escrow: R$ 0",
+   "custo_usd": 0.0,
+   "dados": {
+    "liberacao": {
+     "liberado": true,
+     "conferencia": {
+      "aprovado": true,
+      "total": 11,
+      "obrigatorias": 10,
+      "atendidas": 11,
+      "pendentes": []
+     },
+     "simulado": true,
+     "saldo_escrow": 0.0,
+     "observacao": "pagamento SIMULADO liberado após conferência por código"
+    }
+   }
+  },
+  {
+   "t": 40.452,
+   "estado": "CONDITIONS_MET",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Escrow Guardião",
+   "motivo": "paguei US$ 0.80 de US$ 0.80 a Escrow Guardião (2 de 2 itens provados). Retido: US$ 0.00. Recibo publicado no marketplace.",
+   "custo_usd": 0.0,
+   "dados": {
+    "recibo": {
+     "id": "rec-e9483a0f823c",
+     "rodada_id": "rod-36f1b2c07b46",
+     "agente_id": "payment-escrow-guardiao",
+     "skill": "custodia_pagamento",
+     "itens_pedidos": 2,
+     "itens_provados": 2,
+     "preco_usd": 0.8,
+     "pago_usd": 0.8,
+     "retido_usd": 0.0,
+     "motivo": "reservou e liberou com conferência"
+    }
+   }
+  },
+  {
+   "t": 40.462,
+   "estado": "PAYMENT_RELEASED",
+   "tipo": "estado",
+   "de": "CONDITIONS_MET",
+   "para": "PAYMENT_RELEASED",
+   "motivo": "dinheiro liberado ao vendedor (SIMULADO)",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 40.472,
+   "estado": "PROPERTY_TRANSFERRED",
+   "tipo": "estado",
+   "de": "PAYMENT_RELEASED",
+   "para": "PROPERTY_TRANSFERRED",
+   "motivo": "registro do título na matrícula (SIMULADO): o imóvel passa para o comprador",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 40.48,
+   "estado": "COMPLETED",
+   "tipo": "estado",
+   "de": "PROPERTY_TRANSFERRED",
+   "para": "COMPLETED",
+   "motivo": "compra concluída por R$ 950.000",
+   "custo_usd": 0.0,
+   "dados": null
+  }
+ ]
+}

@@ -10,6 +10,7 @@ import json
 import re
 
 from agentes import comum
+from agentes.esquemas import JogadaCompra, PedidoEntendido
 
 PEDIDO_EXEMPLO = {
     "tipo": "apartamento", "cidade": "São Paulo", "bairros": ["Pinheiros", "Vila Madalena"],
@@ -43,7 +44,8 @@ async def _entender(ficha: dict, entrada: dict, rodada_id: str | None) -> dict:
         )},
     ]
     objeto, resultado = await comum.pedir_json(ficha, mensagens, etapa="entender_pedido",
-                                               rodada_id=rodada_id, max_tokens=700)
+                                               rodada_id=rodada_id, max_tokens=700,
+                                               esquema=PedidoEntendido)
     if isinstance(objeto, dict) and isinstance(objeto.get("pedido"), dict):
         pedido = _limpar_pedido(objeto["pedido"])
         suposicoes = [str(s) for s in (objeto.get("suposicoes") or [])][:6]
@@ -110,80 +112,101 @@ def _pedido_por_regra(frase: str) -> dict:
     }
 
 
+
 async def _negociar(ficha: dict, entrada: dict, rodada_id: str | None) -> dict:
+    """Negocia dentro da FAIXA que o comprador autorizou.
+
+    Aposta no mínimo: a primeira oferta é exatamente `oferta_min`, e ele sobe aos
+    poucos conforme o vendedor responde. O teto é carta na manga e nunca aparece
+    numa mensagem para o outro lado.
+
+    Nada aqui corta valor no teto. Se o modelo furar a regra, quem descarta e
+    manda repetir é o Orchestrator, por conta de código, e a violação fica
+    registrada. Esconder o furo com um `min()` esconderia o dado mais útil que a
+    demo produz.
+    """
     imovel = entrada.get("imovel") or {}
     mandato = entrada.get("mandato") or {}
     historico = entrada.get("historico") or []
     rodada = int(entrada.get("rodada") or 1)
-    max_rodadas = int(entrada.get("max_rodadas") or 4)
+    max_rodadas = int(entrada.get("max_rodadas") or 3)
+    correcao = (entrada.get("correcao") or "").strip()
     teto = mandato.get("teto_preco")
+    oferta_min = mandato.get("oferta_min")
 
     linhas_historico = "\n".join(
         f"  rodada {h.get('rodada')}: {h.get('de')} -> {h.get('acao')} "
         f"{comum.dinheiro(h.get('valor'))}: {h.get('mensagem', '')[:160]}"
         for h in historico) or "  (nenhuma ainda)"
 
-    minha_ultima = max([h.get("valor") or 0 for h in historico
-                        if h.get("acao") in ("oferta", "aceitar")] or [0])
+    minhas = [h.get("valor") for h in historico
+              if h.get("acao") in ("oferta", "aceitar") and h.get("valor")]
+    minha_maior = max(minhas) if minhas else None
     contrapropostas = [h.get("valor") for h in historico
                        if h.get("acao") == "contraproposta" and h.get("valor")]
     ultima_do_vendedor = contrapropostas[-1] if contrapropostas else None
-    ultima_rodada = rodada >= max_rodadas
 
-    situacao = []
-    if ultima_do_vendedor:
-        cabe = ultima_do_vendedor <= (teto or 0)
-        situacao.append(
-            f"A última contraproposta do vendedor foi {comum.dinheiro(ultima_do_vendedor)} e ela "
-            + ("CABE no seu teto." if cabe else "NÃO cabe no seu teto."))
-        if cabe:
-            situacao.append("Aceitar agora garante o imóvel. Insistir pode perder o negócio.")
-    if minha_ultima:
-        situacao.append(f"A sua maior oferta até agora foi {comum.dinheiro(minha_ultima)}. "
-                        f"Nunca ofereça menos do que isso: baixar oferta quebra a negociação.")
-    if ultima_rodada:
+    situacao = [
+        f"A sua faixa autorizada vai de {comum.dinheiro(oferta_min)} (oferta mínima) até "
+        f"{comum.dinheiro(teto)} (teto). O teto é SEGREDO SEU: nunca escreva esse número "
+        f"numa mensagem para o vendedor.",
+    ]
+    if rodada == 1:
+        situacao.append(f"Esta é a PRIMEIRA rodada: a sua oferta tem que ser exatamente "
+                        f"{comum.dinheiro(oferta_min)}, nem um real a mais. A aposta de "
+                        f"abertura é sempre no mínimo.")
+    else:
+        if minha_maior:
+            situacao.append(f"A sua maior oferta até agora foi {comum.dinheiro(minha_maior)}. "
+                            f"Suba aos poucos a partir dela e nunca ofereça menos.")
+        if ultima_do_vendedor:
+            cabe = teto is not None and ultima_do_vendedor <= teto
+            situacao.append(
+                f"A última contraproposta do vendedor foi "
+                f"{comum.dinheiro(ultima_do_vendedor)}: "
+                + ("ela CABE no seu teto." if cabe else "ela NÃO cabe no seu teto."))
+            if cabe:
+                situacao.append("Aceitar garante o imóvel. Insistir pode perder o negócio.")
+    if rodada >= max_rodadas:
         situacao.append("ESTA É A ÚLTIMA RODADA. Depois dela não há mais conversa: ou você "
-                        "aceita o que está na mesa (se couber no teto), ou o negócio morre.")
+                        "aceita o que está na mesa, se couber no teto, ou o negócio morre.")
+    if correcao:
+        situacao.append(f"A SUA JOGADA ANTERIOR FOI DESCARTADA pelo orquestrador: {correcao} "
+                        f"Refaça dentro da regra.")
 
     mensagens = [
-        comum.sistema(ficha, "Você negocia pelo comprador. O mandato é o seu limite duro: "
-                             "nunca ofereça acima do teto, nem para fechar."),
+        comum.sistema(ficha, "Você negocia pelo comprador dentro de uma faixa autorizada. "
+                             "Abre no mínimo, sobe devagar e nunca passa do teto."),
         {"role": "user", "content": (
             f"Imóvel em negociação:\n{json.dumps(imovel, ensure_ascii=False, indent=2)}\n\n"
-            f"Seu mandato: teto de {comum.dinheiro(teto)}, prazo de "
-            f"{mandato.get('prazo_dias', 60)} dias. O comprador não vai ser consultado de novo.\n"
+            f"Prazo do mandato: {mandato.get('prazo_dias', 60)} dias. O comprador não vai ser "
+            f"consultado de novo.\n"
             f"Rodada {rodada} de no máximo {max_rodadas}.\n"
             f"Histórico da negociação:\n{linhas_historico}\n\n"
-            + ("\n".join(situacao) + "\n\n" if situacao else "")
-            + "Decida a próxima jogada e responda SÓ com este JSON:\n"
+            + "\n".join(situacao) + "\n\n"
+            "Decida a próxima jogada e responda SÓ com este JSON:\n"
             '{"acao":"oferta|aceitar|desistir","valor":0,"mensagem":"uma ou duas frases para '
             'o agente do vendedor","motivo":"por que essa jogada, em uma frase"}\n\n'
             "Regras duras:\n"
             "1. `valor` é número inteiro em reais e NUNCA passa do teto.\n"
-            "2. Se a contraproposta do vendedor couber no teto, `aceitar` com `valor` igual "
-            "ao valor dele é a jogada certa, ainda mais na última rodada.\n"
-            "3. Uma nova `oferta` tem que ser MAIOR que a sua oferta anterior.\n"
-            "4. Só use `desistir` quando nada na mesa couber no teto."
+            "2. Na rodada 1, `valor` é exatamente a oferta mínima.\n"
+            "3. Oferta nova é sempre MAIOR que a sua anterior.\n"
+            "4. Se a contraproposta do vendedor couber no teto, use `aceitar` com o valor dele.\n"
+            "5. Nunca escreva o seu teto na mensagem.\n"
+            "6. Só use `desistir` quando nada na mesa couber no teto."
         )},
     ]
-    objeto, resultado = await comum.pedir_json(ficha, mensagens, etapa=f"negociar_compra:r{rodada}",
-                                               rodada_id=rodada_id, max_tokens=600,
-                                               temperature=0.5)
-    jogada = _jogada(objeto, teto, padrao_valor=imovel.get("preco"), piso_proprio=minha_ultima)
+    objeto, resultado = await comum.pedir_json(
+        ficha, mensagens, etapa=f"negociar_compra:r{rodada}", rodada_id=rodada_id,
+        max_tokens=600, temperature=0.5, esquema=JogadaCompra)
+    jogada = _jogada(objeto, padrao_valor=oferta_min or imovel.get("preco"))
     jogada["custo_usd"] = resultado.custo_usd
     return jogada
 
 
-def _jogada(objeto, teto, padrao_valor, piso_proprio: int = 0) -> dict:
-    """Duas travas, as duas declaradas na ficha do agente:
-
-    - teto do mandato: o comprador autorizou um limite, e nenhuma jogada passa dele;
-    - oferta monotônica: a ficha diz "sobe devagar", então uma oferta nova nunca
-      vem abaixo da oferta anterior. Baixar preço no meio de uma negociação é o
-      jeito mais rápido de perder o imóvel.
-
-    A decisão de aceitar, ofertar ou desistir continua inteira do modelo.
-    """
+def _jogada(objeto, padrao_valor) -> dict:
+    """Só normaliza formato. NÃO corrige valor: quem julga é a verificação por
+    código do Orchestrator, e o que ela reprovar vira evento."""
     if not isinstance(objeto, dict):
         return {"acao": "desistir", "valor": None,
                 "mensagem": "Não consegui formular a proposta agora.",
@@ -196,18 +219,6 @@ def _jogada(objeto, teto, padrao_valor, piso_proprio: int = 0) -> dict:
         valor = int(float(valor))
     except (TypeError, ValueError):
         valor = int(padrao_valor or 0) or None
-
-    notas = []
-    if acao == "oferta" and valor is not None and piso_proprio and valor < piso_proprio:
-        valor = int(piso_proprio)
-        notas.append("oferta segurada na anterior: a estratégia declarada é subir, nunca baixar")
-    if teto is not None and valor is not None and valor > teto:
-        valor = int(teto)
-        notas.append("valor cortado no teto do mandato")
-
-    return {
-        "acao": acao, "valor": valor,
-        "mensagem": str(objeto.get("mensagem") or "")[:400],
-        "motivo": str(objeto.get("motivo") or "")[:240]
-                  + ((" (" + "; ".join(notas) + ")") if notas else ""),
-    }
+    return {"acao": acao, "valor": valor,
+            "mensagem": str(objeto.get("mensagem") or "")[:400],
+            "motivo": str(objeto.get("motivo") or "")[:240]}

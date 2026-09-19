@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 220.939 - 2º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 33, do Edifício Moaci, situado na Avenida Moaci, 245, Moema, São Paulo - SP.
+Área privativa: 74,00 m2. Área comum: 33,00 m2. Fração ideal: 0,0520.
+Vagas: 1 (uma) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Ana Lucia Ferraz Motta, CPF 939.***.***-39.
+Certidão emitida em: 01/09/2026. Validade até: 01/12/2026.
+
+R-3/220.939 - COMPRA E VENDA. Adquirente: Ana Lucia Ferraz Motta. Data: 22/01/2018. Situação: ATIVA.
+AV-4/220.939 - HIPOTECA em favor do Banco Itaú S.A.. Registrada em 22/01/2018. Situação: CANCELADA em 21/09/2023 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 051.519.033-3 | Imóvel: Avenida Moaci, 245, ap. 33
+Emitida em: 01/09/2026. Validade até: 01/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Ana Lucia Ferraz Motta, CPF 939.***.***-39
+Emitida em: 01/09/2026. Validade até: 01/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Moaci - CNPJ 44.***.***/0001-69
+Unidade: apartamento 33. Emitida em: 01/09/2026. Validade até: 01/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 940,00.

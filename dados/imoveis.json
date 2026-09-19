@@ -114,9 +114,9 @@
     "seller_agent": "AGT904",
     "texto_anuncio": "Lindo Apartamento em Pinheiros, 178 m2 uteis, 4 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
     "_privado_vendedor": {
-      "piso_preco": 1880000,
-      "pressa": 0.35,
-      "motivo_venda": "investidor realizando lucro da carteira"
+      "piso_preco": 1970000,
+      "pressa": 0.1,
+      "motivo_venda": "proprietário sem pressa nenhuma, só vende no preço do anúncio"
     }
   },
   {
@@ -566,9 +566,9 @@
     "seller_agent": "AGT919",
     "texto_anuncio": "Apartamento com planta inteligente em Moema, 3 suites, varanda gourmet, 3 vagas. Predio com portaria 24h. Documentacao completa.",
     "_privado_vendedor": {
-      "piso_preco": 1585000,
-      "pressa": 0.54,
-      "motivo_venda": "investidor realizando lucro da carteira"
+      "piso_preco": 1792000,
+      "pressa": 0.12,
+      "motivo_venda": "proprietário sem pressa nenhuma, só vende no preço do anúncio"
     }
   },
   {

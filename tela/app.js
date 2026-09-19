@@ -215,7 +215,8 @@ function desenharShortlist(rodada) {
     }
     cartao.appendChild(selos);
 
-    if (!rodada.escolha && ESTADO.modo === "ao-vivo") {
+    const podeEscolher = (!rodada.escolha || rodada.estado === "OFFER_REJECTED");
+    if (podeEscolher && ESTADO.modo === "ao-vivo") {
       const botao = criar("button", "", "Escolher este");
       botao.addEventListener("click", () => escolher(imovel.property_id, imovel.preco));
       cartao.appendChild(botao);
@@ -237,6 +238,10 @@ function desenharNegociacao(rodada) {
       + " | " + jogada.acao + " " + reais(jogada.valor)));
     item.appendChild(criar("div", "", jogada.mensagem || ""));
     item.appendChild(criar("div", "dica", jogada.motivo || ""));
+    if (jogada.violacao && jogada.violacao.length) {
+      item.appendChild(criar("div", "erro",
+        "jogada fora da regra, descartada: " + jogada.violacao.join("; ")));
+    }
     lista.appendChild(item);
   });
 }
@@ -279,6 +284,7 @@ function desenharRodada(rodada) {
   desenharEscrow(rodada.escrow);
   desenharRecibos(rodada.contratos);
   $("passo-oferta").hidden = !(rodada.estado === "PROPERTY_SELECTED" && ESTADO.modo === "ao-vivo");
+  if (rodada.estado === "PROPERTY_SELECTED") $("botao-ofertar").disabled = false;
   if (rodada.memoria_usada) {
     $("subtitulo").textContent = "Segundo comprador: a busca veio da memória do orquestrador. "
       + "A primeira custou " + dolar(rodada.memoria_usada.custo_original_usd)
@@ -314,7 +320,9 @@ async function escolher(propertyId, preco) {
       body: JSON.stringify({ property_id: propertyId }),
     });
     desenharRodada(rodada);
-    $("teto").value = Math.round(preco * 0.97 / 10000) * 10000;
+    const teto = Math.round(preco * 0.97 / 10000) * 10000;
+    $("teto").value = teto;
+    $("oferta-min").value = Math.round(teto * 0.9 / 10000) * 10000;
   } catch (erro) {
     alert("Não consegui registrar a escolha: " + erro.message);
   }
@@ -322,12 +330,18 @@ async function escolher(propertyId, preco) {
 
 async function ofertar() {
   const teto = Number($("teto").value);
+  const ofertaMin = Number($("oferta-min").value);
   if (!teto) { alert("Diga o teto de preço."); return; }
+  if (ofertaMin && ofertaMin > teto) {
+    alert("A oferta mínima não pode ser maior que o teto.");
+    return;
+  }
   $("botao-ofertar").disabled = true;
   try {
     const rodada = await pedir("/orchestrator/rodadas/" + ESTADO.rodadaId + "/oferta", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ teto_preco: teto, prazo_dias: Number($("prazo").value) || 60 }),
+      body: JSON.stringify({ teto_preco: teto, oferta_min: ofertaMin || null,
+                             prazo_dias: Number($("prazo").value) || 60 }),
     });
     desenharRodada(rodada);
   } catch (erro) {

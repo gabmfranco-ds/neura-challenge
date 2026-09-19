@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 211.606 - 4º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 24, do Edifício Aspicuelta, situado na Rua Aspicuelta, 891, Vila Madalena, São Paulo - SP.
+Área privativa: 74,00 m2. Área comum: 33,00 m2. Fração ideal: 0,0457.
+Vagas: 1 (uma) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Leonardo Bastos Rangel, CPF 876.***.***-12.
+Certidão emitida em: 04/09/2026. Validade até: 04/12/2026.
+
+R-6/211.606 - COMPRA E VENDA. Adquirente: Leonardo Bastos Rangel. Data: 13/04/2017. Situação: ATIVA.
+AV-7/211.606 - HIPOTECA em favor do Banco Bradesco S.A.. Registrada em 13/04/2017. Situação: CANCELADA em 12/11/2023 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 042.420.024-3 | Imóvel: Rua Aspicuelta, 891, ap. 24
+Emitida em: 04/09/2026. Validade até: 04/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Leonardo Bastos Rangel, CPF 876.***.***-12
+Emitida em: 04/09/2026. Validade até: 04/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Aspicuelta - CNPJ 17.***.***/0001-96
+Unidade: apartamento 24. Emitida em: 04/09/2026. Validade até: 04/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.110,00.

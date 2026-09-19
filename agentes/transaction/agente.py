@@ -32,7 +32,9 @@ async def executar(ficha: dict, skill: str, entrada: dict, rodada_id: str | None
     if imovel is None:
         raise ValueError(f"imóvel desconhecido: {property_id!r}")
 
-    confere_documentos = "não confere" not in (ficha.get("estrategia") or "").lower()
+    # A ficha DIZ se este agente confere documentação. Quem contratou leu isso
+    # antes de pagar.
+    confere_documentos = bool(ficha.get("confere_documentos"))
     analise = verificacao.status_documentacao(property_id)
     catalogo = dados.criterios_fechamento()
     hoje = dt.date.today().strftime("%d/%m/%Y")

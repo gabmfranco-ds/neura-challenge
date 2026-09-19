@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 224.187 - 18º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 37, do Edifício dos Nhambiquaras, situado na Alameda dos Nhambiquaras, 120, Moema, São Paulo - SP.
+Área privativa: 126,00 m2. Área comum: 56,00 m2. Fração ideal: 0,0548.
+Vagas: 3 (três) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Elisa Camargo Toledo, CPF 967.***.***-91.
+Certidão emitida em: 05/09/2026. Validade até: 05/12/2026.
+
+R-7/224.187 - COMPRA E VENDA. Adquirente: Elisa Camargo Toledo. Data: 26/05/2014. Situação: ATIVA.
+AV-8/224.187 - HIPOTECA em favor do Banco do Brasil S.A.. Registrada em 26/05/2014. Situação: CANCELADA em 25/02/2024 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 055.563.037-7 | Imóvel: Alameda dos Nhambiquaras, 120, ap. 37
+Emitida em: 05/09/2026. Validade até: 05/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Elisa Camargo Toledo, CPF 967.***.***-91
+Emitida em: 05/09/2026. Validade até: 05/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício dos Nhambiquaras - CNPJ 56.***.***/0001-47
+Unidade: apartamento 37. Emitida em: 05/09/2026. Validade até: 05/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.180,00.

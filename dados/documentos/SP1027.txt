@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 227.298 - 10º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: cobertura nº 22, do Edifício Cardoso de Almeida, situado na Rua Cardoso de Almeida, 1024, Perdizes, São Paulo - SP.
+Área privativa: 140,00 m2. Área comum: 63,00 m2. Fração ideal: 0,0569.
+Vagas: 3 (três) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Henrique Lobato Xavier, CPF 988.***.***-40.
+Certidão emitida em: 08/09/2026. Validade até: 08/12/2026.
+
+R-4/227.298 - COMPRA E VENDA. Adquirente: Henrique Lobato Xavier. Data: 02/08/2017. Situação: ATIVA.
+AV-5/227.298 - HIPOTECA em favor do Caixa Econômica Federal. Registrada em 02/08/2017. Situação: CANCELADA em 03/05/2024 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 058.596.022-1 | Imóvel: Rua Cardoso de Almeida, 1024, ap. 22
+Emitida em: 08/09/2026. Validade até: 08/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Henrique Lobato Xavier, CPF 988.***.***-40
+Emitida em: 08/09/2026. Validade até: 08/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Cardoso de Almeida - CNPJ 65.***.***/0001-98
+Unidade: apartamento 22. Emitida em: 08/09/2026. Validade até: 08/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.570,00.

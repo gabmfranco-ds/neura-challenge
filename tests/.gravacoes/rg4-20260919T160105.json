@@ -1,0 +1,44 @@
+{
+ "rodada_id": "rg4",
+ "gravado_em": "2026-09-19T19:01:05.802284+00:00",
+ "duracao_total_s": 0.008,
+ "resumo": {
+  "estado": "SHORTLIST",
+  "frase": "quero um apto",
+  "shortlist": [],
+  "contratos": [],
+  "negociacao": []
+ },
+ "eventos": [
+  {
+   "t": 0.0,
+   "estado": "SEARCH",
+   "tipo": "humano",
+   "de": "Comprador",
+   "para": "Buyer",
+   "motivo": "quero um apto",
+   "custo_usd": 0.0,
+   "dados": null
+  },
+  {
+   "t": 0.004,
+   "estado": "SEARCH",
+   "tipo": "decisao",
+   "de": "Orquestrador",
+   "para": "Casa Verificada",
+   "motivo": "contratei Casa Verificada",
+   "custo_usd": 0.0001,
+   "dados": null
+  },
+  {
+   "t": 0.008,
+   "estado": "SHORTLIST",
+   "tipo": "estado",
+   "de": "SEARCH",
+   "para": "SHORTLIST",
+   "motivo": "3 imóveis",
+   "custo_usd": 0.0,
+   "dados": null
+  }
+ ]
+}

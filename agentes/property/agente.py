@@ -18,6 +18,7 @@ from __future__ import annotations
 import json
 
 from agentes import comum
+from agentes.esquemas import ListaImoveis
 from nucleo import dados
 
 MAX_CANDIDATOS = 8
@@ -69,7 +70,8 @@ async def executar(ficha: dict, skill: str, entrada: dict, rodada_id: str | None
         )},
     ]
     objeto, resultado = await comum.pedir_json(ficha, mensagens, etapa="buscar_imoveis",
-                                               rodada_id=rodada_id, max_tokens=1600)
+                                               rodada_id=rodada_id, max_tokens=1600,
+                                               esquema=ListaImoveis)
     itens = extrair_itens(objeto)[:quantidade]
 
     return {

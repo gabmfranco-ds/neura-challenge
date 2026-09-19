@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 213.680 - 14º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 26, do Edifício Joaquim Tavora, situado na Rua Joaquim Tavora, 891, Vila Mariana, São Paulo - SP.
+Área privativa: 196,00 m2. Área comum: 88,00 m2. Fração ideal: 0,0471.
+Vagas: 4 (quatro) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Nelson Aguiar Cavalcanti, CPF 890.***.***-38.
+Certidão emitida em: 06/09/2026. Validade até: 06/12/2026.
+
+R-8/213.680 - COMPRA E VENDA. Adquirente: Nelson Aguiar Cavalcanti. Data: 15/06/2019. Situação: ATIVA.
+AV-9/213.680 - HIPOTECA em favor do Banco Santander S.A.. Registrada em 15/06/2019. Situação: CANCELADA em 14/02/2025 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 044.442.026-5 | Imóvel: Rua Joaquim Tavora, 891, ap. 26
+Emitida em: 06/09/2026. Validade até: 06/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Nelson Aguiar Cavalcanti, CPF 890.***.***-38
+Emitida em: 06/09/2026. Validade até: 06/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Joaquim Tavora - CNPJ 23.***.***/0001-40
+Unidade: apartamento 26. Emitida em: 06/09/2026. Validade até: 06/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.950,00.

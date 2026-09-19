@@ -14,7 +14,7 @@ router = APIRouter(prefix="/orchestrator", tags=["orchestrator"])
 
 
 def _rodada(rodada_id: str) -> motor.Rodada:
-    rodada = motor.RODADAS.get(rodada_id)
+    rodada = motor.obter(rodada_id)
     if rodada is None:
         raise HTTPException(status_code=404, detail=f"rodada {rodada_id} não existe")
     return rodada
@@ -31,23 +31,25 @@ async def criar_rodada(corpo: dict) -> dict:
 
 @router.get("/rodadas")
 async def listar_rodadas() -> dict:
-    return {"rodadas": [r.para_json() for r in motor.RODADAS.values()]}
+    return {"rodadas": [motor.rodada_json(r) for r in motor.RODADAS.values()]}
 
 
 @router.get("/rodadas/{rodada_id}")
 async def obter_rodada(rodada_id: str) -> dict:
-    return _rodada(rodada_id).para_json()
+    return motor.rodada_json(_rodada(rodada_id))
 
 
 @router.post("/rodadas/{rodada_id}/escolha")
 async def escolher(rodada_id: str, corpo: dict) -> dict:
+    """Segundo ato do humano. Também serve para escolher OUTRO imóvel quando a
+    negociação do anterior terminou sem acordo."""
     rodada = _rodada(rodada_id)
     property_id = (corpo.get("property_id") or "").strip()
     try:
         motor.escolher(rodada, property_id)
     except (ValueError, estados.TransicaoInvalida) as erro:
         raise HTTPException(status_code=400, detail=str(erro)) from erro
-    return rodada.para_json()
+    return motor.rodada_json(rodada)
 
 
 @router.post("/rodadas/{rodada_id}/oferta")
@@ -60,8 +62,17 @@ async def ofertar(rodada_id: str, corpo: dict) -> dict:
         teto = int(corpo.get("teto_preco"))
     except (TypeError, ValueError) as erro:
         raise HTTPException(status_code=400, detail="mande teto_preco em reais") from erro
-    await motor.ofertar(rodada, teto, int(corpo.get("prazo_dias") or 60))
-    return rodada.para_json()
+    oferta_min = corpo.get("oferta_min")
+    try:
+        oferta_min = int(oferta_min) if oferta_min not in (None, "") else None
+    except (TypeError, ValueError) as erro:
+        raise HTTPException(status_code=400,
+                            detail="oferta_min, se vier, é número em reais") from erro
+    if oferta_min is not None and oferta_min > teto:
+        raise HTTPException(status_code=400,
+                            detail="a oferta mínima não pode ser maior que o teto")
+    await motor.ofertar(rodada, teto, int(corpo.get("prazo_dias") or 60), oferta_min)
+    return motor.rodada_json(rodada)
 
 
 @router.get("/eventos")

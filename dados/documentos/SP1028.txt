@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 228.335 - 14º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: casa nº 23, do Edifício Turiassu, situado na Rua Turiassu, 120, Perdizes, São Paulo - SP.
+Área privativa: 148,00 m2. Área comum: 66,00 m2. Fração ideal: 0,0576.
+Vagas: 3 (três) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Isabel Correa Bandeira, CPF 995.***.***-53.
+Certidão emitida em: 09/09/2026. Validade até: 09/12/2026.
+
+R-5/228.335 - COMPRA E VENDA. Adquirente: Isabel Correa Bandeira. Data: 03/09/2018. Situação: ATIVA.
+AV-6/228.335 - HIPOTECA em favor do Banco Santander S.A.. Registrada em 03/09/2018. Situação: CANCELADA em 04/06/2025 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 059.607.023-2 | Imóvel: Rua Turiassu, 120, ap. 23
+Emitida em: 09/09/2026. Validade até: 09/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Isabel Correa Bandeira, CPF 995.***.***-53
+Emitida em: 09/09/2026. Validade até: 09/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Turiassu - CNPJ 68.***.***/0001-25
+Unidade: apartamento 23. Emitida em: 09/09/2026. Validade até: 09/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 2.000,00.

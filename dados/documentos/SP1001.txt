@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 201.236 - 4º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 32, do Edifício Fradique Coutinho, situado na Rua Fradique Coutinho, 407, Pinheiros, São Paulo - SP.
+Área privativa: 74,00 m2. Área comum: 33,00 m2. Fração ideal: 0,0387.
+Vagas: 1 (uma) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Bruno Tavares Quintela, CPF 806.***.***-62.
+Certidão emitida em: 06/09/2026. Validade até: 06/12/2026.
+
+R-8/201.236 - COMPRA E VENDA. Adquirente: Bruno Tavares Quintela. Data: 03/06/2015. Situação: ATIVA.
+AV-9/201.236 - HIPOTECA em favor do Banco Bradesco S.A.. Registrada em 03/06/2015. Situação: CANCELADA em 02/01/2025 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 032.310.032-2 | Imóvel: Rua Fradique Coutinho, 407, ap. 32
+Emitida em: 06/09/2026. Validade até: 06/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Bruno Tavares Quintela, CPF 806.***.***-62
+Emitida em: 06/09/2026. Validade até: 06/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Fradique Coutinho - CNPJ 76.***.***/0001-16
+Unidade: apartamento 32. Emitida em: 06/09/2026. Validade até: 06/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.160,00.

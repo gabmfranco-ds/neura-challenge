@@ -46,8 +46,11 @@
 
     <div id="passo-oferta" class="cartao" hidden>
       <h3>3. Autorize a oferta</h3>
-      <p class="dica">Você dá um teto e some. Nenhum botão de aprovar no meio.</p>
-      <label for="teto">Teto de preço, em reais</label>
+      <p class="dica">Você dá uma faixa e some. Nenhum botão de aprovar no meio. O agente
+        abre no mínimo e sobe até o teto, nunca além.</p>
+      <label for="oferta-min">Oferta mínima, em reais (onde o agente abre)</label>
+      <input id="oferta-min" type="number" step="10000" inputmode="numeric">
+      <label for="teto">Teto de preço, em reais (o máximo autorizado)</label>
       <input id="teto" type="number" step="10000" inputmode="numeric">
       <label for="prazo">Prazo, em dias</label>
       <input id="prazo" type="number" value="60">

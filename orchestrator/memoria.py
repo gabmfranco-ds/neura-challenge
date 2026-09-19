@@ -16,10 +16,14 @@ FAIXA_PRECO = 250_000
 
 def assinatura(pedido: dict) -> str:
     """Pedidos parecidos caem na mesma assinatura: mesma cidade, mesmos bairros,
-    mesma faixa de preço (blocos de R$ 250 mil) e mesmos mínimos."""
+    mesma faixa de preço (blocos de R$ 250 mil, pelo mais próximo) e mesmos
+    mínimos."""
     bairros = ",".join(sorted(b.lower() for b in (pedido.get("bairros") or [])))
     preco = pedido.get("preco_max") or 0
-    faixa = int(preco // FAIXA_PRECO)
+    # Arredonda para a faixa mais PRÓXIMA, não para a de baixo: com corte duro,
+    # R$ 1,95 milhão e R$ 2 milhões caíam em faixas diferentes e a memória
+    # perdia um pedido que é o mesmo pedido.
+    faixa = int(round(preco / FAIXA_PRECO))
     return "|".join([
         str(pedido.get("tipo") or ""),
         str(pedido.get("cidade") or "").lower(),
