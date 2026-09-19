@@ -89,3 +89,6 @@ Cada uma tem um `LEIAME.md` com as regras. Leia o da sua antes de escrever.
 - **KYC, contrato, escritura e escrow são SIMULADOS**, e a tela diz isso.
 - **Dizer no palco o que veio pronto antes do evento**: o cliente da NeuraLake com as
   defesas e a conferência de citação vieram do projeto Aval, do mesmo dono.
+
+> **Chegou agora?** Leia o [CONTEXTO.md](CONTEXTO.md): o que está decidido, onde está cada
+> coisa e o estado real de cada peça.
