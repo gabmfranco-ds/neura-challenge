@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 212.643 - 10º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 25, do Edifício Purpurina, situado na Rua Purpurina, 533, Vila Madalena, São Paulo - SP.
+Área privativa: 95,00 m2. Área comum: 42,00 m2. Fração ideal: 0,0464.
+Vagas: 1 (uma) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Marcia Villaca Peixoto, CPF 883.***.***-25.
+Certidão emitida em: 05/09/2026. Validade até: 05/12/2026.
+
+R-7/212.643 - COMPRA E VENDA. Adquirente: Marcia Villaca Peixoto. Data: 14/05/2018. Situação: ATIVA.
+AV-8/212.643 - HIPOTECA em favor do Caixa Econômica Federal. Registrada em 14/05/2018. Situação: CANCELADA em 13/01/2024 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 043.431.025-4 | Imóvel: Rua Purpurina, 533, ap. 25
+Emitida em: 05/09/2026. Validade até: 05/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Marcia Villaca Peixoto, CPF 883.***.***-25
+Emitida em: 05/09/2026. Validade até: 05/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Purpurina - CNPJ 20.***.***/0001-23
+Unidade: apartamento 25. Emitida em: 05/09/2026. Validade até: 05/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 880,00.

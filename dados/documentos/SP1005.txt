@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 77.905 - 10º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 51, do Edifício Artur de Azevedo, situado na Rua Artur de Azevedo, 533, Pinheiros, São Paulo - SP.
+Área privativa: 148,00 m2. Área comum: 70,30 m2. Fração ideal: 0,0304.
+Vagas: 3 (três) vagas demarcadas em subsolo, objeto da mesma matrícula.
+Proprietários: Sergio Kimura Tanaka e Aline Prado Tanaka, casados sob comunhão parcial de bens.
+Certidão emitida em: 06/09/2026. Validade até: 05/12/2026.
+
+R-6/77.905 - COMPRA E VENDA. Adquirentes: Sergio Kimura Tanaka e Aline Prado Tanaka. Data: 08/10/2016. Situação: ATIVA.
+AV-7/77.905 - HIPOTECA em favor da Caixa Econômica Federal. Registrada em 08/10/2016. Situação: CANCELADA em 30/05/2023 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 011.902.0051-4 | Imóvel: Rua Artur de Azevedo, 533, ap. 51
+Emitida em: 04/09/2026. Validade até: 03/03/2027.
+Resultado: NADA CONSTA.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Sergio Kimura Tanaka, CPF 244.***.***-30 e Aline Prado Tanaka, CPF 391.***.***-58
+Emitida em: 06/09/2026. Validade até: 05/12/2026.
+Resultado: NADA CONSTA para ambos os pesquisados.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Artur de Azevedo - CNPJ 33.***.***/0001-19
+Unidade: apartamento 51. Emitida em: 10/09/2026. Validade até: 10/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.890,00.

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Marketplace de imóveis</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<div id="faixa-reprise" class="faixa-reprise" hidden>
+  <strong>REPRISE</strong>
+  <span id="rotulo-reprise"></span>
+</div>
+
+<header class="topo">
+  <div class="titulo">
+    <h1>Agent Marketplace de imóveis</h1>
+    <p id="subtitulo">O comprador fala uma vez. Os agentes se contratam sozinhos.</p>
+  </div>
+  <ol id="trilho" class="trilho" aria-label="máquina de estados"></ol>
+</header>
+
+<main class="painel">
+
+  <section class="coluna coluna-conversa">
+    <h2>Conversa do comprador</h2>
+
+    <div id="passo-frase" class="cartao">
+      <label for="frase">1. O que você procura</label>
+      <textarea id="frase" rows="3">Quero um apartamento de 3 quartos em Pinheiros ou Vila Madalena, até R$ 2 milhões, com pelo menos 2 vagas e 120 m2, para morar, com financiamento.</textarea>
+      <button id="botao-buscar" type="button">Procurar imóveis</button>
+      <p class="dica">Esta é a primeira de três vezes em que um humano age.</p>
+    </div>
+
+    <div id="passo-pedido" class="cartao" hidden>
+      <h3>O que o agente entendeu</h3>
+      <dl id="pedido-lista" class="pares"></dl>
+      <p id="suposicoes" class="dica"></p>
+    </div>
+
+    <div id="passo-shortlist" class="cartao" hidden>
+      <h3>2. Escolha um imóvel</h3>
+      <div id="shortlist"></div>
+    </div>
+
+    <div id="passo-oferta" class="cartao" hidden>
+      <h3>3. Autorize a oferta</h3>
+      <p class="dica">Você dá uma faixa e some. Nenhum botão de aprovar no meio. O agente
+        abre no mínimo e sobe até o teto, nunca além.</p>
+      <label for="oferta-min">Oferta mínima, em reais (onde o agente abre)</label>
+      <input id="oferta-min" type="number" step="10000" inputmode="numeric">
+      <label for="teto">Teto de preço, em reais (o máximo autorizado)</label>
+      <input id="teto" type="number" step="10000" inputmode="numeric">
+      <label for="prazo">Prazo, em dias</label>
+      <input id="prazo" type="number" value="60">
+      <button id="botao-ofertar" type="button">Quero fazer oferta</button>
+    </div>
+
+    <div id="passo-negociacao" class="cartao" hidden>
+      <h3>Negociação entre agentes</h3>
+      <ul id="negociacao" class="negociacao"></ul>
+    </div>
+
+    <div id="passo-fim" class="cartao" hidden>
+      <h3 id="fim-titulo"></h3>
+      <p id="fim-texto"></p>
+      <ul id="condicoes" class="condicoes"></ul>
+    </div>
+  </section>
+
+  <section class="coluna coluna-linha">
+    <h2>Linha do tempo, agente para agente</h2>
+    <p class="dica">Cada linha traz o motivo da decisão. Nada aqui passou por um humano.</p>
+    <ol id="linha-tempo" class="linha-tempo"></ol>
+  </section>
+
+  <section class="coluna coluna-lado">
+    <h2>Placar de autonomia</h2>
+    <div class="placar">
+      <div class="numero"><span id="p-decisoes">0</span><small>decisões sem humano</small></div>
+      <div class="numero"><span id="p-repasses">0</span><small>repasses entre agentes</small></div>
+      <div class="numero"><span id="p-humanos">0</span><small>intervenções humanas</small></div>
+      <div class="numero"><span id="p-verificacoes">0</span><small>verificações por código</small></div>
+    </div>
+
+    <h2>Carteiras, em dólar</h2>
+    <p class="dica">Gasto de inferência é dinheiro real da NeuraLake. Honorário é simulado.</p>
+    <table class="carteiras">
+      <thead><tr><th>Agente</th><th>Inferência</th><th>Honorário</th><th>Retido</th></tr></thead>
+      <tbody id="carteiras"></tbody>
+    </table>
+
+    <h2>Escrow <span class="selo">simulado</span></h2>
+    <p id="escrow-saldo" class="escrow-saldo">Sem reserva</p>
+    <ul id="escrow" class="razao"></ul>
+
+    <h2>Contratos e recibos</h2>
+    <ul id="recibos" class="recibos"></ul>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="rodape-bloco">
+    <span class="rodape-rotulo">Custo total da rodada</span>
+    <strong id="custo-total">US$ 0,0000</strong>
+  </div>
+  <div class="rodape-bloco">
+    <span class="rodape-rotulo">Chamadas em auto</span>
+    <strong id="contador-auto">0 de 0</strong>
+  </div>
+  <div class="rodape-bloco">
+    <span class="rodape-rotulo">Estado</span>
+    <strong id="estado-atual">SEARCH</strong>
+  </div>
+  <div class="rodape-bloco rodape-modo">
+    <span class="rodape-rotulo">Modo</span>
+    <button id="botao-ao-vivo" type="button" class="ligado">Ao vivo</button>
+    <button id="botao-reprise" type="button">Reprise</button>
+    <select id="lista-reprises" hidden></select>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

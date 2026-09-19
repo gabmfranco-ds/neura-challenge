@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 142.770 - 10º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 181, do Edifício Fradique Coutinho, situado na Rua Fradique Coutinho, 245, Pinheiros, São Paulo - SP.
+Área privativa: 162,00 m2. Área comum: 78,00 m2. Fração ideal: 0,0288.
+Vagas: 4 (quatro) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Marina Tostes Aguiar, CPF 228.***.***-16.
+Certidão emitida em: 08/09/2026. Validade até: 07/12/2026.
+
+R-5/142.770 - COMPRA E VENDA. Adquirente: Marina Tostes Aguiar. Data: 12/07/2019. Situação: ATIVA.
+AV-6/142.770 - HIPOTECA em favor do Banco Santander S.A.. Registrada em 12/07/2019. Situação: CANCELADA em 04/02/2025 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 011.332.0181-2 | Imóvel: Rua Fradique Coutinho, 245, ap. 181
+Emitida em: 08/09/2026. Validade até: 07/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Marina Tostes Aguiar, CPF 228.***.***-16
+Emitida em: 08/09/2026. Validade até: 07/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Fradique Coutinho - CNPJ 19.***.***/0001-73
+Unidade: apartamento 181. Emitida em: 08/09/2026. Validade até: 08/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 2.140,00.

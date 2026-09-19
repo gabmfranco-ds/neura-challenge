@@ -102,16 +102,88 @@ CONDITIONS_MET → PAYMENT_RELEASED → PROPERTY_TRANSFERRED → COMPLETED`, mai
 - No palco, dizer o que veio pronto antes do evento e o que é simulado.
 - Agentes de IA trabalham em branch com pull request. Ninguém faz commit direto na `main`.
 
+## Estado real em 19/09, depois da branch `v1`
+
+**Tudo abaixo saiu de rodada real contra a API, não de expectativa.**
+
+| | antes do Agno | depois do Agno |
+|---|---|---|
+| rodadas medidas | 6 | 8 |
+| chegaram a SHORTLIST | 6 de 6 | 8 de 8 |
+| chegaram a COMPLETED | 6 de 6 | 4 de 8 (as outras 4 em `OFFER_REJECTED`) |
+| tempo da frase à shortlist | 12,9 a 25,2 s | 5,1 a 25,1 s |
+| tempo da rodada inteira | 32,4 s em média | 37,6 s em média (completas) |
+| custo de inferência por rodada | US$ 0,0015 | US$ 0,0015 |
+| chamadas em `auto` | 48 de 48 | 77 de 77 |
+| plano B (queda para `text`) | 0 | 0 |
+
+A queda de COMPLETED **não é regressão**: é a regra nova de negociação funcionando. Antes,
+acordo fora da faixa do vendedor virava contrato; agora não vira. Quatro dessas rodadas
+terminaram em `OFFER_REJECTED` porque o vendedor tem piso acima do que o comprador
+autorizou, que é o comportamento certo.
+
+**Troca de contratado: 3 em 8 rodadas** (mesma frequência antes e depois). Ela acontece na
+busca, quando a verificação reprova parte da entrega e o Orchestrator contrata o
+concorrente para completar a shortlist. **O que NÃO acontece:** o Orchestrator escolher o
+agente barato primeiro. A política declarada "sem histórico verificado, comece pelo mais
+barato e verifique" está no prompt e aparece na tela, e mesmo assim ele escolheu o
+`Casa Verificada` em 8 de 8, dizendo no motivo que os critérios de aceite exigem
+conferência de documento. O modelo está certo, e isso foi registrado como achado, não
+corrigido à força.
+
+**Negociação, nas 8 rodadas:** primeira oferta igual à `oferta_min` em 8 de 8; acordo
+sempre na rodada 3 (a última); 4 violações de regra cometidas pelos modelos, todas
+descartadas com repetição, 5 descartes no total.
+
+**Memória:** o segundo comprador com pedido parecido pula a busca inteira. Medido: 5,1 s em
+vez de 20,4 s, e a rodada sai cerca de 40% mais barata.
+
 ## Furos conhecidos (em ordem de importância para a nota)
 
-1. **A troca de contratado quase não acontece.** Na rodada medida, o Orchestrator escolheu
-   direto o agente bom nas 3 capacidades. É o momento que mais vale nos 30%. Caminho
-   honesto: regra de negócio declarada, como "sem histórico verificado, começa pelo mais
-   barato e verifica". Em medição.
-2. A tela ainda não passou por olho humano.
-3. As condições de fechamento em `dados/criterios-fechamento.json` são uma lista inicial.
+1. **O acordo sempre sai na rodada 3**, que é a última. Com o limite em 3 e o comprador
+   abrindo no mínimo, não sobra espaço para fechar antes. Se o júri contar rodadas, isso
+   parece sorte, não estratégia.
+2. **Metade das rodadas termina sem acordo.** É honesto (o piso do vendedor está acima da
+   faixa autorizada), mas para a demo ao vivo convém escolher um imóvel com vendedor
+   apressado. Os pisos estão em `dados/imoveis.json`, em `_privado_vendedor`.
+3. **A troca de contratado nunca vem de escolha ruim**, só de reprovação parcial. Ver
+   acima.
+4. As condições de fechamento em `dados/criterios-fechamento.json` são uma lista inicial.
    Quem domina o assunto precisa corrigir.
-4. Pitch de 4 minutos ainda não escrito.
+5. Pitch de 4 minutos ainda não escrito.
+6. Não há teste de ponta a ponta com a API real dentro da suíte: os 102 testes rodam sem
+   rede, e a prova ao vivo é manual.
+
+## O que mudou no contrato HTTP (o banco de avaliações precisa saber)
+
+`GET /.well-known/agent-card.json` e `POST /tarefas` **não mudaram de forma**. O que mudou:
+
+- `POST /orchestrator/rodadas/{id}/oferta` agora recebe
+  `{"oferta_min": 1740000, "teto_preco": 1930000, "prazo_dias": 60}`. `oferta_min` é
+  opcional: faltando, o Orchestrator assume 90% do teto e registra a suposição no evento.
+  Mandar `oferta_min` maior que `teto_preco` devolve 400.
+- `POST /orchestrator/rodadas/{id}/escolha` agora também aceita ser chamado quando a rodada
+  está em `OFFER_REJECTED`: o comprador escolhe outro imóvel da mesma shortlist e a
+  negociação recomeça.
+- A entrada da skill `negociar_compra` ganhou `mandato.oferta_min`, `rodada`, `max_rodadas`
+  e `correcao` (o motivo pelo qual a jogada anterior foi descartada). A de `negociar_venda`
+  ganhou `rodada`, `max_rodadas` e `correcao`. Nenhum campo antigo saiu.
+- Fichas ganharam campos declarados novos: `confere_documentos` (transaction) e
+  `acesso_a_dados` (property).
+
+## Agno: o que ele faz e o que ele não faz
+
+Portado e no ar (`agno` 3.0.10). Um `Agent` por papel com `output_schema` Pydantic e
+`use_json_mode`; o estado da rodada no `session_state` de um `Workflow`, persistido em
+`neura-agno.db` pelo `SqliteDb` do Agno.
+
+**Duas coisas o Agno não entrega** e um gancho no `httpx.AsyncClient` pega do corpo cru
+(`nucleo/modelo.py`): o `usage.estimated_cost` (o `RunMetrics` vem com `cost=None`) e qual
+modelo a NeuraLake escolheu (o Agno repete o `auto` que mandamos). Sem esse gancho não
+existe carteira em dólar real nem o contador de roteamento na tela.
+
+**Sem tool calling no caminho crítico**, medido: `auto` roteia para `text` e `text` falha no
+turno `role:"tool"`.
 
 ## Fatias de entrega
 

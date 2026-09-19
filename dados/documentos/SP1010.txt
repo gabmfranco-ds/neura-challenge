@@ -1,0 +1,32 @@
+=== MATRICULA ===
+Matrícula nº 211.336 - 4º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 71, do Edifício Girassol, situado na Rua Girassol, 245, Vila Madalena, São Paulo - SP.
+Área privativa: 135,00 m2. Área comum: 64,20 m2. Fração ideal: 0,0262.
+Vagas: 3 (três) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietária: Mirante Participações Imobiliárias Ltda., CNPJ 21.***.***/0001-88.
+Certidão emitida em: 07/09/2026. Validade até: 06/12/2026.
+
+R-3/211.336 - COMPRA E VENDA. Adquirente: Mirante Participações Imobiliárias Ltda. Data: 25/08/2021. Situação: ATIVA.
+AV-4/211.336 - PENHORA determinada nos autos da execução fiscal nº 0500221-18.2022.8.26.0090. Data: 30/09/2022. Situação: CANCELADA em 14/07/2024 por sentença de extinção com pagamento.
+AV-5/211.336 - AVERBACAO DE REFORMA INTERNA sem alteração de área. Data: 19/11/2023. Situação: ATIVA.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 089.114.0071-9 | Imóvel: Rua Girassol, 245, ap. 71
+Emitida em: 02/09/2026. Validade até: 01/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Mirante Participações Imobiliárias Ltda., CNPJ 21.***.***/0001-88
+Emitida em: 12/03/2026. Validade até: 11/06/2026.
+Resultado: NADA CONSTA na data da emissão.
+Observação: certidão de distribuição tem validade de 90 dias. Esta certidão está fora do prazo de validade e precisa ser reemitida antes da lavratura da escritura.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Girassol - CNPJ 12.***.***/0001-40
+Unidade: apartamento 71. Emitida em: 09/09/2026. Validade até: 09/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.510,00.

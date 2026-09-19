@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 230.409 - 2º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: cobertura nº 25, do Edifício Apinages, situado na Rua Apinages, 245, Perdizes, São Paulo - SP.
+Área privativa: 140,00 m2. Área comum: 63,00 m2. Fração ideal: 0,0190.
+Vagas: 3 (três) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Karina Duarte Espindola, CPF 109.***.***-79.
+Certidão emitida em: 11/09/2026. Validade até: 11/12/2026.
+
+R-7/230.409 - COMPRA E VENDA. Adquirente: Karina Duarte Espindola. Data: 05/11/2020. Situação: ATIVA.
+AV-8/230.409 - HIPOTECA em favor do Banco Itaú S.A.. Registrada em 05/11/2020. Situação: CANCELADA em 06/08/2024 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 061.629.025-4 | Imóvel: Rua Apinages, 245, ap. 25
+Emitida em: 11/09/2026. Validade até: 11/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Karina Duarte Espindola, CPF 109.***.***-79
+Emitida em: 11/09/2026. Validade até: 11/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Apinages - CNPJ 74.***.***/0001-59
+Unidade: apartamento 25. Emitida em: 11/09/2026. Validade até: 11/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.400,00.

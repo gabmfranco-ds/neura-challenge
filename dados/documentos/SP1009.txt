@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 209.532 - 18º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 22, do Edifício Purpurina, situado na Rua Purpurina, 891, Vila Madalena, São Paulo - SP.
+Área privativa: 95,00 m2. Área comum: 42,00 m2. Fração ideal: 0,0443.
+Vagas: 1 (uma) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Joao Vicente Alencastro, CPF 862.***.***-76.
+Certidão emitida em: 02/09/2026. Validade até: 02/12/2026.
+
+R-4/209.532 - COMPRA E VENDA. Adquirente: Joao Vicente Alencastro. Data: 11/02/2015. Situação: ATIVA.
+AV-5/209.532 - HIPOTECA em favor do Banco do Brasil S.A.. Registrada em 11/02/2015. Situação: CANCELADA em 10/09/2024 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 040.398.022-1 | Imóvel: Rua Purpurina, 891, ap. 22
+Emitida em: 02/09/2026. Validade até: 02/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Joao Vicente Alencastro, CPF 862.***.***-76
+Emitida em: 02/09/2026. Validade até: 02/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Purpurina - CNPJ 11.***.***/0001-62
+Unidade: apartamento 22. Emitida em: 02/09/2026. Validade até: 02/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.180,00.

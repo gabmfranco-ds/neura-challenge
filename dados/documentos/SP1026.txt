@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 226.261 - 4º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 21, do Edifício Turiassu, situado na Rua Turiassu, 742, Perdizes, São Paulo - SP.
+Área privativa: 178,00 m2. Área comum: 80,00 m2. Fração ideal: 0,0562.
+Vagas: 4 (quatro) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Gisele Andrade Pompeu, CPF 981.***.***-27.
+Certidão emitida em: 07/09/2026. Validade até: 07/12/2026.
+
+R-3/226.261 - COMPRA E VENDA. Adquirente: Gisele Andrade Pompeu. Data: 01/07/2016. Situação: ATIVA.
+AV-4/226.261 - HIPOTECA em favor do Banco Bradesco S.A.. Registrada em 01/07/2016. Situação: CANCELADA em 02/04/2023 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 057.585.021-0 | Imóvel: Rua Turiassu, 742, ap. 21
+Emitida em: 07/09/2026. Validade até: 07/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Gisele Andrade Pompeu, CPF 981.***.***-27
+Emitida em: 07/09/2026. Validade até: 07/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Turiassu - CNPJ 62.***.***/0001-81
+Unidade: apartamento 21. Emitida em: 07/09/2026. Validade até: 07/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 2.230,00.

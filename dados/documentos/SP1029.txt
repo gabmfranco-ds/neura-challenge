@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 229.372 - 18º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 24, do Edifício Apinages, situado na Rua Apinages, 1024, Perdizes, São Paulo - SP.
+Área privativa: 88,00 m2. Área comum: 39,00 m2. Fração ideal: 0,0183.
+Vagas: 1 (uma) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Joao Vicente Alencastro, CPF 102.***.***-66.
+Certidão emitida em: 10/09/2026. Validade até: 10/12/2026.
+
+R-6/229.372 - COMPRA E VENDA. Adquirente: Joao Vicente Alencastro. Data: 04/10/2019. Situação: ATIVA.
+AV-7/229.372 - HIPOTECA em favor do Banco do Brasil S.A.. Registrada em 04/10/2019. Situação: CANCELADA em 05/07/2023 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 060.618.024-3 | Imóvel: Rua Apinages, 1024, ap. 24
+Emitida em: 10/09/2026. Validade até: 10/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Joao Vicente Alencastro, CPF 102.***.***-66
+Emitida em: 10/09/2026. Validade até: 10/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Apinages - CNPJ 71.***.***/0001-42
+Unidade: apartamento 24. Emitida em: 10/09/2026. Validade até: 10/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 810,00.
