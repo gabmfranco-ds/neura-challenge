@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 203.115 - 10º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 151, do Edifício Teodoro Sampaio, situado na Rua Fradique Coutinho, 688, Pinheiros, São Paulo - SP.
+Área privativa: 178,00 m2. Área comum: 84,00 m2. Fração ideal: 0,0312.
+Vagas: 4 (quatro) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Eduardo Lins Vasconcelos, CPF 255.***.***-63.
+Certidão emitida em: 12/09/2026. Validade até: 11/12/2026.
+
+R-8/203.115 - COMPRA E VENDA. Adquirente: Eduardo Lins Vasconcelos. Data: 09/09/2018. Situação: ATIVA.
+AV-9/203.115 - HIPOTECA em favor do Banco Safra S.A.. Registrada em 09/09/2018. Situação: CANCELADA em 15/04/2025 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 011.775.0151-9 | Imóvel: Rua Fradique Coutinho, 688, ap. 151
+Emitida em: 12/09/2026. Validade até: 11/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Eduardo Lins Vasconcelos, CPF 255.***.***-63
+Emitida em: 12/09/2026. Validade até: 11/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Teodoro Sampaio - CNPJ 52.***.***/0001-88
+Unidade: apartamento 151. Emitida em: 12/09/2026. Validade até: 12/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 2.380,00.

@@ -1,0 +1,127 @@
+{
+  "aviso": "LISTA INICIAL, escrita por quem NAO e especialista. Serve para o fluxo rodar. Um integrante do time que domina compra e venda de imovel no Brasil vai corrigir, completar e cortar o que estiver errado. Nada aqui e orientacao juridica.",
+  "versao": "0.1",
+  "atualizado_em": "2026-09-19",
+  "condicoes": [
+    {
+      "id": "matricula_atualizada",
+      "nome": "Matricula atualizada e sem onus ativo",
+      "descricao": "Certidao de matricula do imovel emitida ha no maximo 30 dias, sem hipoteca, penhora, usufruto ou indisponibilidade ativa.",
+      "prova": "documento",
+      "fonte": "matricula",
+      "obrigatoria": true,
+      "fase": "DOCUMENTS_VERIFIED"
+    },
+    {
+      "id": "certidoes_dentro_da_validade",
+      "nome": "Certidoes do vendedor dentro da validade",
+      "descricao": "Certidao de distribuicao civel e fiscal do vendedor valida na data da escritura (prazo usual de 90 dias).",
+      "prova": "documento",
+      "fonte": "certidao_distribuicao",
+      "obrigatoria": true,
+      "fase": "DOCUMENTS_VERIFIED"
+    },
+    {
+      "id": "iptu_sem_debito",
+      "nome": "IPTU e taxas municipais sem debito",
+      "descricao": "Certidao negativa de debitos municipais do imovel, sem exercicios em aberto.",
+      "prova": "documento",
+      "fonte": "certidao_iptu",
+      "obrigatoria": true,
+      "fase": "DOCUMENTS_VERIFIED"
+    },
+    {
+      "id": "condominio_quitado",
+      "nome": "Condominio quitado",
+      "descricao": "Declaracao do sindico ou da administradora de que nao ha cotas em aberto nem rateio extraordinario aprovado.",
+      "prova": "documento",
+      "fonte": "condominio",
+      "obrigatoria": true,
+      "fase": "DOCUMENTS_VERIFIED"
+    },
+    {
+      "id": "kyc_comprador",
+      "nome": "KYC do comprador concluido",
+      "descricao": "Identificacao do comprador, comprovacao de residencia e origem de recursos. SIMULADO nesta demo.",
+      "prova": "simulado",
+      "fonte": "kyc",
+      "obrigatoria": true,
+      "fase": "KYC_PENDING"
+    },
+    {
+      "id": "kyc_vendedor",
+      "nome": "KYC do vendedor concluido",
+      "descricao": "Identificacao do vendedor e conferencia de capacidade para vender (estado civil, representacao de espolio ou de pessoa juridica). SIMULADO nesta demo.",
+      "prova": "simulado",
+      "fonte": "kyc",
+      "obrigatoria": true,
+      "fase": "KYC_PENDING"
+    },
+    {
+      "id": "preco_dentro_do_mandato",
+      "nome": "Preco final dentro do mandato do comprador",
+      "descricao": "O valor acordado na negociacao nao pode passar do teto que o comprador autorizou.",
+      "prova": "calculo",
+      "fonte": "mandato",
+      "obrigatoria": true,
+      "fase": "OFFER_ACCEPTED"
+    },
+    {
+      "id": "financiamento_aprovado",
+      "nome": "Financiamento aprovado pelo banco",
+      "descricao": "Carta de aprovacao de credito com valor, prazo e taxa, quando a compra for financiada. SIMULADO nesta demo.",
+      "prova": "simulado",
+      "fonte": "financiamento",
+      "obrigatoria": false,
+      "fase": "CONTRACT_SIGNED"
+    },
+    {
+      "id": "contrato_assinado",
+      "nome": "Contrato de compra e venda assinado",
+      "descricao": "Instrumento particular ou promessa de compra e venda assinado pelas duas partes, com as condicoes precedentes listadas. SIMULADO nesta demo.",
+      "prova": "simulado",
+      "fonte": "contrato",
+      "obrigatoria": true,
+      "fase": "CONTRACT_SIGNED"
+    },
+    {
+      "id": "itbi_recolhido",
+      "nome": "ITBI recolhido",
+      "descricao": "Guia de ITBI paga ao municipio (em Sao Paulo, 3% do maior valor entre o de venda e o venal de referencia). SIMULADO nesta demo.",
+      "prova": "calculo",
+      "fonte": "itbi",
+      "obrigatoria": true,
+      "fase": "CONDITIONS_MET"
+    },
+    {
+      "id": "escritura_lavrada",
+      "nome": "Escritura publica lavrada em cartorio de notas",
+      "descricao": "Escritura de compra e venda lavrada com as partes qualificadas e as certidoes apresentadas. SIMULADO nesta demo.",
+      "prova": "simulado",
+      "fonte": "cartorio",
+      "obrigatoria": true,
+      "fase": "CONDITIONS_MET"
+    },
+    {
+      "id": "registro_na_matricula",
+      "nome": "Registro do titulo na matricula do imovel",
+      "descricao": "So a transcricao no registro de imoveis transfere a propriedade. SIMULADO nesta demo.",
+      "prova": "simulado",
+      "fonte": "cartorio",
+      "obrigatoria": true,
+      "fase": "PROPERTY_TRANSFERRED"
+    }
+  ],
+  "custos_estimados": {
+    "itbi_percentual": 0.03,
+    "escritura_percentual": 0.012,
+    "registro_percentual": 0.009,
+    "observacao": "Percentuais aproximados para Sao Paulo capital, sem tabela oficial conferida. O especialista do time corrige."
+  },
+  "em_aberto": [
+    "Conferir a tabela real de emolumentos do cartorio de notas e do registro de imoveis de SP.",
+    "Separar condicao de compra a vista de compra financiada (o financiamento muda a ordem: aprovacao vem antes da escritura).",
+    "Incluir certidao de onus reais e acoes reipersecutorias como item proprio, se for diferente da matricula atualizada.",
+    "Verificar se falta certidao trabalhista do vendedor pessoa juridica."
+  ]
+}

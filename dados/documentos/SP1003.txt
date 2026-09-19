@@ -1,0 +1,31 @@
+=== MATRICULA ===
+Matrícula nº 98.417 - 10º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 142, do Edifício Cristiano Viana, situado na Rua Cristiano Viana, 407, Pinheiros, São Paulo - SP.
+Área privativa: 124,00 m2. Área comum: 61,10 m2. Fração ideal: 0,0198.
+Vagas: 3 (três) vagas demarcadas em subsolo, objeto da mesma matrícula.
+Proprietários: Espólio de Waldemar Pires Serrano, representado pelos herdeiros Rita Serrano Abreu e Paulo Serrano.
+Certidão emitida em: 09/09/2026. Validade até: 08/12/2026.
+
+R-7/98.417 - FORMAL DE PARTILHA. Inventário nº 1009882-44.2023.8.26.0100. Herdeiros: Rita Serrano Abreu (50%) e Paulo Serrano (50%). Data: 11/04/2025. Situação: ATIVA.
+AV-8/98.417 - HIPOTECA CEDULAR em favor do Banco Bradesco S.A., em garantia de cédula de crédito bancário nº 77.221.904, no valor original de R$ 480.000,00. Registrada em 19/06/2022. Situação: ATIVA.
+AV-9/98.417 - AVERBACAO DE CONSTRUCAO. Habite-se nº 2013/44.112. Data: 02/02/2014. Situação: ATIVA.
+
+Observação do Oficial: consta ônus real ATIVO sobre o imóvel nesta data (AV-8/98.417). A baixa depende de termo de quitação do credor hipotecário, não apresentado até o momento da emissão desta certidão.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 011.447.0142-8 | Imóvel: Rua Cristiano Viana, 407, ap. 142
+Emitida em: 11/09/2026. Validade até: 10/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Rita Serrano Abreu, CPF 302.***.***-11 e Paulo Serrano, CPF 145.***.***-79
+Emitida em: 03/09/2026. Validade até: 02/12/2026.
+Resultado: NADA CONSTA para ambos os pesquisados.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Cristiano Viana - CNPJ 58.***.***/0001-05
+Unidade: apartamento 142. Emitida em: 08/09/2026. Validade até: 08/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.680,00.

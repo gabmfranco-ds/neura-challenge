@@ -1,0 +1,30 @@
+=== MATRICULA ===
+Matrícula nº 119.660 - 2º Oficial de Registro de Imóveis da Comarca de São Paulo - SP
+Imóvel: apartamento nº 94, do Edifício Cardoso de Almeida, situado na Rua Apinages, 120, Perdizes, São Paulo - SP.
+Área privativa: 135,00 m2. Área comum: 66,00 m2. Fração ideal: 0,0259.
+Vagas: 3 (três) vagas em garagem coletiva, objeto da mesma matrícula.
+Proprietário: Rodrigo Menezes Sabbag, CPF 315.***.***-05.
+Certidão emitida em: 10/09/2026. Validade até: 09/12/2026.
+
+R-7/119.660 - COMPRA E VENDA. Adquirente: Rodrigo Menezes Sabbag. Data: 30/05/2016. Situação: ATIVA.
+AV-8/119.660 - HIPOTECA em favor do Caixa Econômica Federal. Registrada em 30/05/2016. Situação: CANCELADA em 27/10/2023 por quitação do financiamento.
+
+Nada mais consta. Não há ônus real ativo sobre o imóvel nesta data.
+
+=== CERTIDAO NEGATIVA DE DEBITOS MUNICIPAIS (IPTU) ===
+Prefeitura do Município de São Paulo - Secretaria Municipal da Fazenda
+Contribuinte: 072.809.0094-1 | Imóvel: Rua Apinages, 120, ap. 94
+Emitida em: 10/09/2026. Validade até: 09/03/2027.
+Resultado: NADA CONSTA. Não há débitos de IPTU inscritos para o imóvel.
+
+=== CERTIDAO DE DISTRIBUICAO CIVEL E FISCAL ===
+Tribunal de Justiça do Estado de São Paulo e Justiça Federal da 3ª Região
+Pesquisado: Rodrigo Menezes Sabbag, CPF 315.***.***-05
+Emitida em: 10/09/2026. Validade até: 09/12/2026.
+Resultado: NADA CONSTA. Não foram localizadas ações cíveis, execuções fiscais, falência ou insolvência em nome do pesquisado.
+
+=== DECLARACAO DE QUITACAO DE CONDOMINIO ===
+Condomínio Edifício Cardoso de Almeida - CNPJ 36.***.***/0001-24
+Unidade: apartamento 94. Emitida em: 10/09/2026. Validade até: 10/10/2026.
+Situação: ADIMPLENTE. Sem cotas em aberto até a competência 09/2026.
+Valor da cota ordinária vigente: R$ 1.630,00.

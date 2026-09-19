@@ -1,0 +1,904 @@
+[
+  {
+    "property_id": "SP1001",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Pinheiros",
+    "endereco": "Rua Fradique Coutinho, 407",
+    "preco": 1005000,
+    "area": 74,
+    "quartos": 2,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 14,
+    "condominio_mensal": 1160,
+    "iptu_anual": 900,
+    "ano_construcao": 2016,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT901",
+    "texto_anuncio": "Lindo Apartamento em Pinheiros, 74 m2 uteis, 2 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 940000,
+      "pressa": 0.73,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    }
+  },
+  {
+    "property_id": "SP1002",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Pinheiros",
+    "endereco": "Rua Fradique Coutinho, 245",
+    "preco": 1975000,
+    "area": 162,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 8,
+    "condominio_mensal": 1460,
+    "iptu_anual": 2060,
+    "ano_construcao": 2022,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "varanda gourmet",
+      "lazer completo",
+      "portaria 24h"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT902",
+    "texto_anuncio": "Apartamento com planta inteligente em Pinheiros, 4 suites, varanda gourmet, 4 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1870000,
+      "pressa": 0.4,
+      "motivo_venda": "troca por imovel menor apos aposentadoria"
+    }
+  },
+  {
+    "property_id": "SP1003",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Pinheiros",
+    "endereco": "Rua Artur de Azevedo, 1024",
+    "preco": 1620000,
+    "area": 124,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 0,
+    "condominio_mensal": 1740,
+    "iptu_anual": 1650,
+    "ano_construcao": 1998,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "varanda gourmet",
+      "lazer completo",
+      "portaria 24h"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT903",
+    "texto_anuncio": "Lindo Apartamento em Pinheiros, 112 m2 uteis, 3 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 1540000,
+      "pressa": 0.6,
+      "motivo_venda": "inventario concluido, herdeiros querem liquidez"
+    }
+  },
+  {
+    "property_id": "SP1004",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Pinheiros",
+    "endereco": "Rua Fradique Coutinho, 688",
+    "preco": 1990000,
+    "area": 178,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 8,
+    "condominio_mensal": 2320,
+    "iptu_anual": 2440,
+    "ano_construcao": 2013,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "predio novo",
+      "academia",
+      "salao de festas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT904",
+    "texto_anuncio": "Lindo Apartamento em Pinheiros, 178 m2 uteis, 4 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 1880000,
+      "pressa": 0.35,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    }
+  },
+  {
+    "property_id": "SP1005",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Pinheiros",
+    "endereco": "Rua Artur de Azevedo, 742",
+    "preco": 1850000,
+    "area": 148,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 14,
+    "condominio_mensal": 2230,
+    "iptu_anual": 2080,
+    "ano_construcao": 2009,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "unavailable",
+    "seller_agent": "AGT905",
+    "texto_anuncio": "Apartamento com planta inteligente em Pinheiros, 3 suites, varanda gourmet, 3 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 2100000,
+      "pressa": 0.75,
+      "motivo_venda": "troca por imovel menor apos aposentadoria"
+    },
+    "motivo_indisponibilidade": "proposta aceita de outro comprador em 15/09/2026, em fase de contrato"
+  },
+  {
+    "property_id": "SP1006",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Pinheiros",
+    "endereco": "Rua Teodoro Sampaio, 245",
+    "preco": 1470000,
+    "area": 95,
+    "quartos": 2,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 0,
+    "condominio_mensal": 1400,
+    "iptu_anual": 1320,
+    "ano_construcao": 2016,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "reformado",
+      "armarios planejados",
+      "andar alto"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT906",
+    "texto_anuncio": "Apartamento com planta inteligente em Pinheiros, 2 suites, varanda gourmet, 1 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1380000,
+      "pressa": 0.79,
+      "motivo_venda": "mudanca de cidade por trabalho"
+    }
+  },
+  {
+    "property_id": "SP1007",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Madalena",
+    "endereco": "Rua Purpurina, 533",
+    "preco": 1935000,
+    "area": 178,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 14,
+    "condominio_mensal": 2440,
+    "iptu_anual": 2330,
+    "ano_construcao": 2013,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "sol da manha",
+      "vista livre",
+      "piso de madeira"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT907",
+    "texto_anuncio": "Lindo Apartamento em Vila Madalena, 178 m2 uteis, 4 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 1820000,
+      "pressa": 0.45,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    }
+  },
+  {
+    "property_id": "SP1008",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Madalena",
+    "endereco": "Rua Girassol, 120",
+    "preco": 1695000,
+    "area": 126,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 2,
+    "condominio_mensal": 1390,
+    "iptu_anual": 1530,
+    "ano_construcao": 2004,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT908",
+    "texto_anuncio": "Apartamento com planta inteligente em Vila Madalena, 3 suites, varanda gourmet, 3 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1560000,
+      "pressa": 0.78,
+      "motivo_venda": "mudanca de cidade por trabalho, precisa fechar em 60 dias"
+    }
+  },
+  {
+    "property_id": "SP1009",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Madalena",
+    "endereco": "Rua Purpurina, 891",
+    "preco": 1210000,
+    "area": 95,
+    "quartos": 2,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 11,
+    "condominio_mensal": 1180,
+    "iptu_anual": 1090,
+    "ano_construcao": 2016,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "varanda gourmet",
+      "lazer completo",
+      "portaria 24h"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT909",
+    "texto_anuncio": "Oportunidade em Vila Madalena: Apartamento de 95 m2 com 2 dormitorios e 1 vagas. Pronto para morar, escritura regular.",
+    "_privado_vendedor": {
+      "piso_preco": 1075000,
+      "pressa": 0.84,
+      "motivo_venda": "mudanca de cidade por trabalho"
+    }
+  },
+  {
+    "property_id": "SP1010",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Madalena",
+    "endereco": "Rua Purpurina, 533",
+    "preco": 1690000,
+    "area": 135,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 11,
+    "condominio_mensal": 1960,
+    "iptu_anual": 1760,
+    "ano_construcao": 2004,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "predio novo",
+      "academia",
+      "salao de festas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT910",
+    "texto_anuncio": "Excelente Apartamento em Vila Madalena, reformado, 3 dormitorios, 3 vagas, lazer completo. Documentacao em ordem, pronto para financiar.",
+    "_privado_vendedor": {
+      "piso_preco": 1610000,
+      "pressa": 0.3,
+      "motivo_venda": "investidor realizando lucro da carteira, sem pressa"
+    }
+  },
+  {
+    "property_id": "SP1011",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Madalena",
+    "endereco": "Rua Aspicuelta, 891",
+    "preco": 925000,
+    "area": 74,
+    "quartos": 2,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 2,
+    "condominio_mensal": 1110,
+    "iptu_anual": 830,
+    "ano_construcao": 1998,
+    "aceita_financiamento": false,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT911",
+    "texto_anuncio": "Lindo Apartamento em Vila Madalena, 74 m2 uteis, 2 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 875000,
+      "pressa": 0.21,
+      "motivo_venda": "familia cresceu e precisa de imovel maior"
+    }
+  },
+  {
+    "property_id": "SP1012",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Madalena",
+    "endereco": "Rua Purpurina, 533",
+    "preco": 1160000,
+    "area": 95,
+    "quartos": 2,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 0,
+    "condominio_mensal": 880,
+    "iptu_anual": 1040,
+    "ano_construcao": 2022,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "reformado",
+      "armarios planejados",
+      "andar alto"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT912",
+    "texto_anuncio": "Excelente Apartamento em Vila Madalena, reformado, 2 dormitorios, 1 vagas, lazer completo. Documentacao em ordem, pronto para financiar.",
+    "_privado_vendedor": {
+      "piso_preco": 1030000,
+      "pressa": 0.59,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    }
+  },
+  {
+    "property_id": "SP1013",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Mariana",
+    "endereco": "Rua Joaquim Tavora, 891",
+    "preco": 2510000,
+    "area": 196,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 14,
+    "condominio_mensal": 1950,
+    "iptu_anual": 2260,
+    "ano_construcao": 2004,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT913",
+    "texto_anuncio": "Oportunidade em Vila Mariana: Apartamento de 196 m2 com 4 dormitorios e 4 vagas. Pronto para morar, escritura regular.",
+    "_privado_vendedor": {
+      "piso_preco": 2180000,
+      "pressa": 0.65,
+      "motivo_venda": "familia cresceu e precisa de imovel maior"
+    }
+  },
+  {
+    "property_id": "SP1014",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Mariana",
+    "endereco": "Rua Joaquim Tavora, 1024",
+    "preco": 1835000,
+    "area": 162,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 5,
+    "condominio_mensal": 1930,
+    "iptu_anual": 1650,
+    "ano_construcao": 2013,
+    "aceita_financiamento": false,
+    "caracteristicas": [
+      "varanda gourmet",
+      "lazer completo",
+      "portaria 24h"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT914",
+    "texto_anuncio": "Apartamento com planta inteligente em Vila Mariana, 4 suites, varanda gourmet, 4 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1725000,
+      "pressa": 0.19,
+      "motivo_venda": "inventario concluido, herdeiros querem liquidez"
+    }
+  },
+  {
+    "property_id": "SP1015",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Mariana",
+    "endereco": "Rua Domingos de Morais, 120",
+    "preco": 2045000,
+    "area": 178,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 14,
+    "condominio_mensal": 2560,
+    "iptu_anual": 1840,
+    "ano_construcao": 2013,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "sol da manha",
+      "vista livre",
+      "piso de madeira"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT915",
+    "texto_anuncio": "Apartamento com planta inteligente em Vila Mariana, 4 suites, varanda gourmet, 4 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1820000,
+      "pressa": 0.24,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    }
+  },
+  {
+    "property_id": "SP1016",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Mariana",
+    "endereco": "Rua Bartira, 1024",
+    "preco": 2015000,
+    "area": 162,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 5,
+    "condominio_mensal": 1650,
+    "iptu_anual": 1810,
+    "ano_construcao": 2013,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "predio novo",
+      "academia",
+      "salao de festas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT916",
+    "texto_anuncio": "Lindo Apartamento em Vila Mariana, 162 m2 uteis, 4 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 1775000,
+      "pressa": 0.68,
+      "motivo_venda": "troca por imovel menor apos aposentadoria"
+    }
+  },
+  {
+    "property_id": "SP1017",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Mariana",
+    "endereco": "Rua Joaquim Tavora, 120",
+    "preco": 1305000,
+    "area": 126,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 0,
+    "condominio_mensal": 1700,
+    "iptu_anual": 1170,
+    "ano_construcao": 2016,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "varanda gourmet",
+      "lazer completo",
+      "portaria 24h"
+    ],
+    "disponibilidade": "unavailable",
+    "seller_agent": "AGT917",
+    "texto_anuncio": "Apartamento com planta inteligente em Vila Mariana, 3 suites, varanda gourmet, 3 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1225000,
+      "pressa": 0.63,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    },
+    "motivo_indisponibilidade": "retirado do mercado pelo proprietario em 02/09/2026"
+  },
+  {
+    "property_id": "SP1018",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Vila Mariana",
+    "endereco": "Rua Bartira, 407",
+    "preco": 2480000,
+    "area": 196,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 14,
+    "condominio_mensal": 1790,
+    "iptu_anual": 2230,
+    "ano_construcao": 2004,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "reformado",
+      "armarios planejados",
+      "andar alto"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT918",
+    "texto_anuncio": "Apartamento com planta inteligente em Vila Mariana, 4 suites, varanda gourmet, 4 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 2195000,
+      "pressa": 0.55,
+      "motivo_venda": "mudanca de cidade por trabalho"
+    }
+  },
+  {
+    "property_id": "SP1019",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Moema",
+    "endereco": "Avenida Moaci, 891",
+    "preco": 1810000,
+    "area": 126,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 11,
+    "condominio_mensal": 1440,
+    "iptu_anual": 1630,
+    "ano_construcao": 2022,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "sol da manha",
+      "vista livre",
+      "piso de madeira"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT919",
+    "texto_anuncio": "Apartamento com planta inteligente em Moema, 3 suites, varanda gourmet, 3 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1585000,
+      "pressa": 0.54,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    }
+  },
+  {
+    "property_id": "SP1020",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Moema",
+    "endereco": "Avenida Moaci, 245",
+    "preco": 1140000,
+    "area": 74,
+    "quartos": 2,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 5,
+    "condominio_mensal": 940,
+    "iptu_anual": 1030,
+    "ano_construcao": 2004,
+    "aceita_financiamento": false,
+    "caracteristicas": [
+      "varanda gourmet",
+      "lazer completo",
+      "portaria 24h"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT920",
+    "texto_anuncio": "Apartamento com planta inteligente em Moema, 2 suites, varanda gourmet, 1 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1045000,
+      "pressa": 0.46,
+      "motivo_venda": "familia cresceu e precisa de imovel maior"
+    }
+  },
+  {
+    "property_id": "SP1021",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Moema",
+    "endereco": "Rua Gaivota, 1180",
+    "preco": 905000,
+    "area": 62,
+    "quartos": 1,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 14,
+    "condominio_mensal": 630,
+    "iptu_anual": 810,
+    "ano_construcao": 2004,
+    "aceita_financiamento": false,
+    "caracteristicas": [
+      "sol da manha",
+      "vista livre",
+      "piso de madeira"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT921",
+    "texto_anuncio": "Lindo Apartamento em Moema, 62 m2 uteis, 1 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 840000,
+      "pressa": 0.7,
+      "motivo_venda": "troca por imovel menor apos aposentadoria"
+    }
+  },
+  {
+    "property_id": "SP1022",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Moema",
+    "endereco": "Alameda dos Nhambiquaras, 245",
+    "preco": 1615000,
+    "area": 104,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 2,
+    "andar": 8,
+    "condominio_mensal": 1420,
+    "iptu_anual": 1450,
+    "ano_construcao": 1998,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "reformado",
+      "armarios planejados",
+      "andar alto"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT922",
+    "texto_anuncio": "Excelente Apartamento em Moema, reformado, 3 dormitorios, 2 vagas, lazer completo. Documentacao em ordem, pronto para financiar.",
+    "_privado_vendedor": {
+      "piso_preco": 1490000,
+      "pressa": 0.72,
+      "motivo_venda": "familia cresceu e precisa de imovel maior"
+    }
+  },
+  {
+    "property_id": "SP1023",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Moema",
+    "endereco": "Avenida Moaci, 1180",
+    "preco": 2820000,
+    "area": 178,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 2,
+    "condominio_mensal": 2230,
+    "iptu_anual": 2540,
+    "ano_construcao": 2009,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "reformado",
+      "armarios planejados",
+      "andar alto"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT923",
+    "texto_anuncio": "Oportunidade em Moema: Apartamento de 178 m2 com 4 dormitorios e 4 vagas. Pronto para morar, escritura regular.",
+    "_privado_vendedor": {
+      "piso_preco": 2490000,
+      "pressa": 0.16,
+      "motivo_venda": "inventario concluido, herdeiros querem liquidez"
+    }
+  },
+  {
+    "property_id": "SP1024",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Moema",
+    "endereco": "Alameda dos Nhambiquaras, 120",
+    "preco": 2185000,
+    "area": 126,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 8,
+    "condominio_mensal": 1180,
+    "iptu_anual": 1970,
+    "ano_construcao": 1998,
+    "aceita_financiamento": false,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT924",
+    "texto_anuncio": "Lindo Apartamento em Moema, 126 m2 uteis, 3 quartos, condominio com lazer. Imovel regularizado, entrega imediata.",
+    "_privado_vendedor": {
+      "piso_preco": 2075000,
+      "pressa": 0.79,
+      "motivo_venda": "inventario concluido, herdeiros querem liquidez"
+    }
+  },
+  {
+    "property_id": "SP1025",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Perdizes",
+    "endereco": "Rua Apinages, 120",
+    "preco": 1745000,
+    "area": 135,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 11,
+    "condominio_mensal": 1830,
+    "iptu_anual": 1570,
+    "ano_construcao": 2009,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT925",
+    "texto_anuncio": "Apartamento com planta inteligente em Perdizes, 3 suites, varanda gourmet, 3 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1570000,
+      "pressa": 0.66,
+      "motivo_venda": "mudanca de cidade por trabalho"
+    }
+  },
+  {
+    "property_id": "SP1026",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Perdizes",
+    "endereco": "Rua Turiassu, 742",
+    "preco": 2145000,
+    "area": 178,
+    "quartos": 4,
+    "suites": 1,
+    "vagas": 4,
+    "andar": 8,
+    "condominio_mensal": 2230,
+    "iptu_anual": 1930,
+    "ano_construcao": 2022,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "predio novo",
+      "academia",
+      "salao de festas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT926",
+    "texto_anuncio": "Excelente Apartamento em Perdizes, reformado, 4 dormitorios, 4 vagas, lazer completo. Documentacao em ordem, pronto para financiar.",
+    "_privado_vendedor": {
+      "piso_preco": 1900000,
+      "pressa": 0.4,
+      "motivo_venda": "mudanca de cidade por trabalho"
+    }
+  },
+  {
+    "property_id": "SP1027",
+    "tipo": "cobertura",
+    "cidade": "Sao Paulo",
+    "bairro": "Perdizes",
+    "endereco": "Rua Cardoso de Almeida, 1024",
+    "preco": 1895000,
+    "area": 140,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 8,
+    "condominio_mensal": 1570,
+    "iptu_anual": 1710,
+    "ano_construcao": 2004,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "varanda gourmet",
+      "lazer completo",
+      "portaria 24h"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT927",
+    "texto_anuncio": "Cobertura impecavel no coracao de Perdizes. 140 m2, 3 quartos, andar alto, sol da manha. Aceita financiamento, documentacao ok.",
+    "_privado_vendedor": {
+      "piso_preco": 1735000,
+      "pressa": 0.24,
+      "motivo_venda": "familia cresceu e precisa de imovel maior"
+    }
+  },
+  {
+    "property_id": "SP1028",
+    "tipo": "casa",
+    "cidade": "Sao Paulo",
+    "bairro": "Perdizes",
+    "endereco": "Rua Turiassu, 120",
+    "preco": 1775000,
+    "area": 148,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 11,
+    "condominio_mensal": 2000,
+    "iptu_anual": 1600,
+    "ano_construcao": 2016,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "predio novo",
+      "academia",
+      "salao de festas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT928",
+    "texto_anuncio": "Casa com planta inteligente em Perdizes, 3 suites, varanda gourmet, 3 vagas. Predio com portaria 24h. Documentacao completa.",
+    "_privado_vendedor": {
+      "piso_preco": 1585000,
+      "pressa": 0.73,
+      "motivo_venda": "familia cresceu e precisa de imovel maior"
+    }
+  },
+  {
+    "property_id": "SP1029",
+    "tipo": "apartamento",
+    "cidade": "Sao Paulo",
+    "bairro": "Perdizes",
+    "endereco": "Rua Apinages, 1024",
+    "preco": 1000000,
+    "area": 88,
+    "quartos": 2,
+    "suites": 0,
+    "vagas": 1,
+    "andar": 11,
+    "condominio_mensal": 810,
+    "iptu_anual": 900,
+    "ano_construcao": 2009,
+    "aceita_financiamento": true,
+    "caracteristicas": [
+      "reformado",
+      "armarios planejados",
+      "andar alto"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT929",
+    "texto_anuncio": "Excelente Apartamento em Perdizes, reformado, 2 dormitorios, 1 vagas, lazer completo. Documentacao em ordem, pronto para financiar.",
+    "_privado_vendedor": {
+      "piso_preco": 860000,
+      "pressa": 0.56,
+      "motivo_venda": "investidor realizando lucro da carteira"
+    }
+  },
+  {
+    "property_id": "SP1030",
+    "tipo": "cobertura",
+    "cidade": "Sao Paulo",
+    "bairro": "Perdizes",
+    "endereco": "Rua Apinages, 245",
+    "preco": 1990000,
+    "area": 140,
+    "quartos": 3,
+    "suites": 1,
+    "vagas": 3,
+    "andar": 5,
+    "condominio_mensal": 1400,
+    "iptu_anual": 1790,
+    "ano_construcao": 2016,
+    "aceita_financiamento": false,
+    "caracteristicas": [
+      "planta original",
+      "dependencia de empregada",
+      "duas sacadas"
+    ],
+    "disponibilidade": "available",
+    "seller_agent": "AGT930",
+    "texto_anuncio": "Oportunidade em Perdizes: Cobertura de 140 m2 com 3 dormitorios e 3 vagas. Pronto para morar, escritura regular.",
+    "_privado_vendedor": {
+      "piso_preco": 1770000,
+      "pressa": 0.54,
+      "motivo_venda": "inventario concluido, herdeiros querem liquidez"
+    }
+  }
+]
