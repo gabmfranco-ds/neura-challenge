@@ -10,3 +10,7 @@ gravacoes/
 node_modules/
 .vercel/
 .DS_Store
+*.db-wal
+*.db-shm
+tests/.gravacoes/
+tests/.teste*.db*
