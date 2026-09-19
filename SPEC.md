@@ -78,7 +78,8 @@ Item que o Property Agent devolve:
 ```
 COMPRADOR diz "quero fazer oferta" e dá um TETO (é a última vez que ele age)
   -> Orchestrator contrata quem negocia pelo comprador e acha o Seller Agent do imóvel
-  -> NEGOCIAÇÃO A2A por LLM, até 4 rodadas: oferta, contraproposta, aceite
+  -> NEGOCIAÇÃO A2A por LLM, até 3 rodadas: oferta, contraproposta, aceite
+     (o comprador abre EXATAMENTE na oferta mínima autorizada e sobe aos poucos)
   -> Orchestrator confere por código se o acordo cabe no mandato
   -> contrata "conduzir_transacao" (2 concorrentes): KYC, contrato e condições precedentes
   -> confere por código quantas condições obrigatórias ficaram atendidas, paga proporcional
@@ -161,8 +162,8 @@ retido_usd}`. Não é nota nem estrela: é a soma dos recibos. Quem nunca entreg
 | Método | Rota | Para que |
 |---|---|---|
 | POST | `/orchestrator/rodadas` | `{frase}` começa a rodada. **Humano 1** |
-| POST | `/orchestrator/rodadas/{id}/escolha` | `{property_id}`. **Humano 2** |
-| POST | `/orchestrator/rodadas/{id}/oferta` | `{teto_preco, prazo_dias}`. **Humano 3** |
+| POST | `/orchestrator/rodadas/{id}/escolha` | `{property_id}`. **Humano 2**. Também vale em `OFFER_REJECTED`, para escolher outro |
+| POST | `/orchestrator/rodadas/{id}/oferta` | `{oferta_min, teto_preco, prazo_dias}`. **Humano 3** |
 | GET | `/orchestrator/rodadas/{id}` | estado, shortlist, negociação, escrow, placar |
 | GET | `/orchestrator/eventos?since=N&rodada_id=` | a linha do tempo |
 | GET | `/orchestrator/carteiras` | custo de inferência e honorário por agente |
@@ -244,13 +245,33 @@ em 6 rodadas medidas ele contrariou a política e foi direto no agente caro, por
 critérios de aceite exigiam conferência de documento, e disse isso no motivo. Isso está
 registrado como achado, não como defeito.
 
-## Duas travas de mandato (e por que não são "código forçando resultado")
+## A negociação, regra por regra
 
-O Buyer Agent nunca emite valor acima do teto que o comprador deu, e nunca oferece menos
-do que já ofereceu. O Seller Agent nunca fecha abaixo do piso do proprietário. As duas
-são o limite que o cliente de cada agente deu, estão declaradas na ficha e aparecem no
-motivo da jogada quando entram em ação. A decisão de aceitar, contrapropor ou desistir
-continua inteira do modelo.
+Os dois lados têm FAIXA, e nenhum dos dois revela a própria.
+
+| Lado | Faixa | Abre em | Move para |
+|---|---|---|---|
+| comprador | `oferta_min` até `teto_preco` (o humano autoriza) | exatamente `oferta_min` | só para cima |
+| vendedor | piso do proprietário até preço pedido (vem de `dados/`) | preço pedido ou perto | só para baixo |
+
+Limite: **3 rodadas** (`NEURA_MAX_RODADAS`). Sem acordo, `OFFER_REJECTED` com o motivo em
+português (última oferta, última contraproposta e a distância entre elas), e o comprador
+escolhe outro imóvel da mesma shortlist sem que nenhuma papelada tenha começado.
+
+Nenhum agente corrige o próprio valor em silêncio. **Toda jogada passa por conferência de
+código** (`nucleo.verificacao.conferir_jogada_*`): primeira oferta igual à mínima, ofertas
+não decrescentes, contrapropostas não crescentes, nada fora da faixa, e a mensagem não pode
+conter o próprio limite. Jogada que viola é **descartada e repetida uma vez** com o motivo;
+violando de novo, a rodada conta como gasta e a violação vira evento, porque isso é dado
+sobre o modelo, não sujeira para esconder.
+
+**Jogada descartada não entra no histórico que o outro lado lê.** Isso custou caro para
+descobrir: numa rodada medida, duas contrapropostas do vendedor foram descartadas por
+estarem abaixo do piso, mas continuaram visíveis para o comprador, que aceitou uma delas, e
+o "acordo" saiu R$ 190 mil abaixo do piso.
+
+O acordo só vale se o preço final couber nas **duas** faixas. Não cabendo, a rodada aborta
+em vez de virar contrato.
 
 ## Pastas
 
@@ -286,12 +307,16 @@ Cada pasta tem um `LEIAME.md` com as regras dela. O contrato entre pastas é o H
 
 1. A lista de condições precedentes é rascunho de quem não é especialista. Quem domina
    compra e venda de imóvel no Brasil precisa corrigir `dados/criterios-fechamento.json`.
-2. A troca de contratado acontece em 3 de 6 rodadas medidas, e por causa de reprovação
-   parcial da busca, não porque o Orchestrator escolheu mal. Se o time quiser a história
-   "escolheu o barato e se queimou", o ajuste honesto é orçamento por subtarefa, e tem
-   que ser declarado na tela.
-3. A negociação fecha sempre em 2 rodadas nas medições. Falta um cenário com vendedor sem
-   pressa e piso alto para mostrar rodada 4 e `OFFER_REJECTED`.
-4. Não há teste de ponta a ponta com a API real dentro da suíte (custa dinheiro e demora).
+2. A troca de contratado acontece em 3 de 8 rodadas medidas, sempre por reprovação parcial
+   da busca, nunca porque o Orchestrator escolheu mal. A política declarada "sem histórico,
+   comece pelo mais barato" está no prompt e na tela, e mesmo assim ele escolhe o agente
+   caro em 8 de 8, porque os critérios de aceite exigem conferência de documento. Achado
+   registrado, não corrigido à força.
+3. O acordo sai sempre na rodada 3, que é a última. Com o limite em 3 e o comprador abrindo
+   no mínimo, não sobra espaço para fechar antes.
+4. Metade das rodadas medidas termina em `OFFER_REJECTED`, porque o piso do vendedor está
+   acima da faixa autorizada. É o comportamento certo, mas para a demo ao vivo convém
+   escolher um imóvel de vendedor apressado.
+5. Não há teste de ponta a ponta com a API real dentro da suíte (os 102 rodam sem rede).
    O que existe é o roteiro manual do README.
-5. Um segundo cenário (aluguel, ou comprador investidor) não existe.
+6. Um segundo cenário (aluguel, ou comprador investidor) não existe.

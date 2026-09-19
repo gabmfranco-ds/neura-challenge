@@ -36,24 +36,29 @@ O `run.sh` e o `run.ps1` leem de lá. Sem a chave, os dois param com uma mensage
 - **rodapé**: custo total da rodada, contador de chamadas em `auto` e o interruptor
   ao vivo ou reprise.
 
-O humano age três vezes e só: a frase, a escolha do imóvel, o teto da oferta. Não existe
+O humano age três vezes e só: a frase, a escolha do imóvel, a faixa da oferta (mínimo e teto). Não existe
 botão de aprovar no meio.
 
-## Números de rodada real (19/09, 6 rodadas seguidas)
+## Números de rodada real (19/09, 8 rodadas seguidas)
 
 | | |
 |---|---|
-| chegaram a SHORTLIST | 6 de 6 |
-| chegaram a COMPLETED | 6 de 6 |
-| tempo médio da rodada inteira | 32,4 s |
+| chegaram a SHORTLIST | 8 de 8 |
+| chegaram a COMPLETED | 4 de 8 (as outras 4 em `OFFER_REJECTED`, sem acordo de verdade) |
+| tempo médio da rodada completa | 37,6 s |
 | custo médio de inferência | US$ 0,0015 |
-| chamadas em `auto` | 48 de 48 |
-| segundo comprador (memória) | busca em 5,4 s em vez de 25,2 s, rodada 57% mais barata |
+| chamadas em `auto` | 77 de 77, nenhum plano B |
+| primeira oferta igual à mínima autorizada | 8 de 8 |
+| troca de contratado | 3 de 8 rodadas |
+| segundo comprador (memória) | busca em 5,1 s em vez de 20,4 s, rodada ~40% mais barata |
+
+As 4 rodadas sem acordo são resultado legítimo: o piso do vendedor estava acima da faixa
+que o comprador autorizou. Para a demo ao vivo, escolha um imóvel de vendedor apressado.
 
 ## Testes
 
 ```bash
-.venv/Scripts/python -m pytest tests -q      # 77 testes, nenhum toca a rede
+.venv/Scripts/python -m pytest tests -q      # 102 testes, nenhum toca a rede
 ```
 
 A suíte roda sem chave e sem internet. O que precisa de modelo usa dublê.
