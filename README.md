@@ -28,3 +28,5 @@ Spec completa: [SPEC.md](SPEC.md)
 ## Como rodar
 
 A definir na primeira hora (Python, FastAPI, um comando sobe tudo).
+
+> **Chegou agora?** Leia o [CONTEXTO.md](CONTEXTO.md): o que está decidido, onde está cada coisa e como rodar. O sistema funcionando está na branch `v1`.
