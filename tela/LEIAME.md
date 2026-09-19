@@ -1,16 +1,36 @@
-# Tela
-
-O que mora aqui: a interface que o júri vê. Esquerda, a conversa do comprador. Centro, a
-linha do tempo das decisões agente para agente com o motivo de cada uma. Direita, as
-carteiras e o placar "sem humano / repasses / humanas: 0". Rodapé com o custo total da
-rodada em dólar e o interruptor ao vivo ou reprise, sempre rotulado. HTML e JS puros, sem
-build.
+# tela
 
 Dono: a definir.
 
-Regra: só o dono escreve nesta pasta. O contrato com as outras pastas é o HTTP descrito
-em `SPEC.md`, nunca import direto nem acesso a arquivo de outra pasta.
+HTML, CSS e JS puros. Sem build, sem framework, sem CDN. Servida pelo próprio FastAPI em
+`http://127.0.0.1:8787`.
 
-Primeira tarefa (hora 0 a 1): subir esta pasta com respostas de mentira que já obedecem
-ao contrato (tela consumindo dados fixos das rotas do consultor), para o resto do time
-integrar em cima antes de qualquer lógica real existir.
+| Arquivo | O que é |
+|---|---|
+| `index.html` | a estrutura: trilho no alto, três colunas, rodapé |
+| `estilo.css` | escuro, feito para telão |
+| `app.js` | polling de eventos e desenho |
+
+## O que o júri vê
+
+- **alto**: a máquina de estados como trilho, com o estado atual aceso;
+- **esquerda**: a conversa do comprador (frase, shortlist com motivo, escolha, teto da
+  oferta) e a negociação entre agentes;
+- **centro**: a linha do tempo agente para agente, com o motivo de cada decisão;
+- **direita**: placar de autonomia, carteiras, escrow e recibos;
+- **rodapé**: custo total em dólar, contador de chamadas em `auto` e o interruptor
+  ao vivo ou reprise.
+
+## Três regras duras
+
+1. **`[hidden] { display: none !important; }` é a PRIMEIRA regra do CSS.** Classe com
+   `display:flex` anulando `hidden` já quebrou tela antes. Não tire daí.
+2. **Dado dinâmico entra por `textContent`.** Nada de `innerHTML`: o texto vem de modelo
+   de linguagem e de documento, e não é confiável.
+3. **Reprise nunca se passa por ao vivo.** Enquanto o modo for reprise, a faixa roxa fica
+   no alto com a data da gravação. Ela não some com o scroll.
+
+## Como a tela conversa com o resto
+
+Só com `/orchestrator/*`. Ela não conhece agente nem Registry. Polling de 1 segundo em
+`/orchestrator/eventos?since=N&rodada_id=...`, mais o estado da rodada e as carteiras.
